@@ -11312,6 +11312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfbf24e960ac0904b87e4b54893a66ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conductor: {fileID: 874627639}
+  beat_detection_range: 0.15
 --- !u!1 &2107612610
 GameObject:
   m_ObjectHideFlags: 0
