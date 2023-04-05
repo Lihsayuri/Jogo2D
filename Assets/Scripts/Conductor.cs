@@ -16,7 +16,7 @@ public class Conductor : MonoBehaviour
     public float songPosition;
 
     //Current song position, in beats
-    public float songPositionInBeats;
+    public int songPositionInBeats;
 
     //How many seconds have passed since the song started
     public float dspSongTime;
@@ -26,6 +26,11 @@ public class Conductor : MonoBehaviour
 
     //The offset to the first beat of the song in seconds
     public float firstBeatOffset;
+
+    public int closest;
+
+    public float time_off_beat;
+
 
     void Start()
     {
@@ -48,6 +53,6 @@ public class Conductor : MonoBehaviour
         songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
 
         //determine how many beats since the song started
-        songPositionInBeats = songPosition / secPerBeat;
+        songPositionInBeats = Mathf.FloorToInt(songPosition / secPerBeat);
     }
 }
