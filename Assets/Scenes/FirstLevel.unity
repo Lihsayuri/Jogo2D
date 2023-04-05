@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -241,6 +242,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5adacb3331ecefc45a53136c56561996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1989782242}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3221,6 +3235,8 @@ MonoBehaviour:
   dspSongTime: 0
   musicSource: {fileID: 874627638}
   firstBeatOffset: 0
+  closest: 0
+  time_off_beat: 0
 --- !u!4 &874627640
 Transform:
   m_ObjectHideFlags: 0
@@ -3382,6 +3398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfbf24e960ac0904b87e4b54893a66ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conductor: {fileID: 874627639}
+  beat_detection_range: 0.15
 --- !u!1 &2107612610
 GameObject:
   m_ObjectHideFlags: 0

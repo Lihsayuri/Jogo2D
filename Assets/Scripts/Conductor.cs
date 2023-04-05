@@ -32,6 +32,13 @@ public class Conductor : MonoBehaviour
     public float time_off_beat;
 
 
+    public float seconds_off_beat()
+    {
+        closest = (int)(songPosition / secPerBeat);
+        time_off_beat = (Mathf.Abs(closest * secPerBeat - songPosition));
+        return time_off_beat;
+    }
+
     void Start()
     {
         //Load the AudioSource attached to the Conductor GameObject
