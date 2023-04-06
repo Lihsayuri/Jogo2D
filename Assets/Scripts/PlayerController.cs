@@ -53,8 +53,9 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
+        //Debug.Log("hey");
         // ..and if the GameObject you intersect has the tag 'Pick Up' assigned to it..
         if (other.gameObject.CompareTag("Enemy"))
         {
