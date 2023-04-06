@@ -294,6 +294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton_3
       objectReference: {fileID: 0}
+    - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
 --- !u!4 &234039657 stripped
@@ -669,6 +673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton_5
       objectReference: {fileID: 0}
+    - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
 --- !u!4 &797733090 stripped
@@ -9619,6 +9627,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton_4
       objectReference: {fileID: 0}
+    - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
 --- !u!4 &1508386437 stripped
@@ -14720,7 +14732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conductor: {fileID: 874627639}
-  beat_detection_range: 0.15
+  beat_detection_range: 0.5
 --- !u!1001 &2058768074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16283,6 +16295,10 @@ PrefabInstance:
     - target: {fileID: 8229489827461122749, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: speed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: conductor
