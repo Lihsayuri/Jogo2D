@@ -166,7 +166,7 @@ namespace SkeletonNamespace {
         {
             lastPositionInBeats = conductor.songPositionInBeats;
             InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-            Debug.Log(esqueleto.transform.position);
+            // Debug.Log(esqueleto.transform.position);
         }
 
         void Update()
