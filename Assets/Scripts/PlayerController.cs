@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SkeletonNamespace;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Conductor conductor;
 
     public float beat_detection_range = 0.15f;
+
 
     private void Awake()
     {
@@ -26,6 +28,8 @@ public class PlayerController : MonoBehaviour
         controls.Disable();
     }
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +41,7 @@ public class PlayerController : MonoBehaviour
         if (conductor.seconds_off_beat() < beat_detection_range) {
             transform.position += (Vector3)direction;
         }
-        
+
     }
 
     // Update is called once per frame

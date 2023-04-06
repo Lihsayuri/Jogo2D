@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton_2
       objectReference: {fileID: 0}
+    - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
 --- !u!4 &53512795 stripped
@@ -244,7 +248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -619,7 +623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9569,7 +9573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16276,5 +16280,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton_1
       objectReference: {fileID: 0}
+    - target: {fileID: 8229489827461122749, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
