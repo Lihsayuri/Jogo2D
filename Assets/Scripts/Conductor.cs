@@ -18,6 +18,9 @@ public class Conductor : MonoBehaviour
     //Current song position, in beats
     public int songPositionInBeats;
 
+    //Last song position, in beats
+    public int lastPositionInBeats;
+
     //How many seconds have passed since the song started
     public float dspSongTime;
 
@@ -41,6 +44,8 @@ public class Conductor : MonoBehaviour
 
     void Start()
     {
+        lastPositionInBeats = songPositionInBeats;
+
         //Load the AudioSource attached to the Conductor GameObject
         musicSource = GetComponent<AudioSource>();
 
@@ -52,6 +57,13 @@ public class Conductor : MonoBehaviour
 
         //Start the music
         musicSource.Play();
+    }
+
+    public bool BeatChanged(){
+        if (lastPositionInBeats == songPositionInBeats)
+            return false;
+        lastPositionInBeats = songPositionInBeats;
+        return true;
     }
 
     void Update()
