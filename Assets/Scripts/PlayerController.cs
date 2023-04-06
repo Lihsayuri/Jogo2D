@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using SkeletonNamespace;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     public float beat_detection_range = 0.15f;
 
+
     private void Awake()
     {
         controls = new PlayerMovement();
@@ -34,6 +36,8 @@ public class PlayerController : MonoBehaviour
         controls.Disable();
     }
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +50,7 @@ public class PlayerController : MonoBehaviour
             if (CanMove(direction))
                 transform.position += (Vector3)direction;
         }
-        
+
     }
 
     void OnTriggerEnter(Collider other)
