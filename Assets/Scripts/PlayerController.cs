@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using SkeletonNamespace;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -79,10 +78,11 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         vida -= damage;
-        _liveImage.sprite = _liveSprites[vida];
-        if (vida <= 0)
+        if(vida > 0)
+            _liveImage.sprite = _liveSprites[vida];
+        else
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

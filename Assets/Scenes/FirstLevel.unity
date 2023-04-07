@@ -187,6 +187,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627639}
@@ -264,6 +268,10 @@ PrefabInstance:
       propertyPath: knight
       value: 
       objectReference: {fileID: 56787286}
+    - target: {fileID: 7207280915325550896, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
     - target: {fileID: 7207280915325550896, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
       propertyPath: conductor
       value: 
@@ -701,6 +709,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
     - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: conductor
       value: 
@@ -1335,6 +1347,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
     - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: conductor
       value: 
@@ -10644,6 +10660,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627639}
@@ -10892,6 +10912,10 @@ PrefabInstance:
       propertyPath: knight
       value: 
       objectReference: {fileID: 1797739681}
+    - target: {fileID: 7207280915325550896, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
     - target: {fileID: 7207280915325550896, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
       propertyPath: conductor
       value: 
@@ -16027,6 +16051,7 @@ MonoBehaviour:
   wallTilemap: {fileID: 1985500176}
   conductor: {fileID: 874627639}
   beat_detection_range: 0.3
+  vida: 5
 --- !u!95 &1989782248
 Animator:
   serializedVersion: 5
@@ -17719,6 +17744,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627639}
@@ -17791,6 +17820,10 @@ PrefabInstance:
       propertyPath: knight
       value: 
       objectReference: {fileID: 426714270}
+    - target: {fileID: 7207280915325550896, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
     - target: {fileID: 7207280915325550896, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
       propertyPath: conductor
       value: 
