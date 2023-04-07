@@ -8,6 +8,8 @@ public class KnightAttack : MonoBehaviour
 
     public GameObject knight;
 
+    public GameObject player;
+
     [SerializeField]
     private Conductor conductor;
 
@@ -93,7 +95,7 @@ public class KnightAttack : MonoBehaviour
 
     private void UpdatePlayerPosition()
     {
-        playerPosition = GameObject.Find("Player").transform.position;
+        playerPosition = player.transform.position;
     }
 
     public bool BeatChanged(){
