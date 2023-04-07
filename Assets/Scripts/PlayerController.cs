@@ -114,6 +114,12 @@ public class PlayerController : MonoBehaviour
                 return false;
             }
 
+            KnightAttack knightScript = hit.gameObject.GetComponent<KnightAttack>() as KnightAttack;
+            if (knightScript != null){
+                knightScript.TakeDamageKnight(1);
+                return false;
+            }
+
             return false;
         }
 
