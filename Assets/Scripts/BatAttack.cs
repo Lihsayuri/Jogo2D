@@ -14,6 +14,12 @@ public class BatAttack : MonoBehaviour
 
     private bool movedUp = false;
 
+    [SerializeField]
+    private int dmg = 1;
+
+    [SerializeField]
+    private int beatsPerMove = 2;
+
 
     private bool CanMove(Vector2 direction)
     {
@@ -25,6 +31,12 @@ public class BatAttack : MonoBehaviour
 
         if (hit != null && (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Player")))
         {
+            if (hit.gameObject.CompareTag("Player"))
+            {
+                PlayerController playerScript = (PlayerController)hit.gameObject.GetComponent(typeof(PlayerController));
+                playerScript.TakeDamage(dmg);
+                return false;
+            }
             return false;
         }
 
@@ -74,7 +86,7 @@ public class BatAttack : MonoBehaviour
     void Update()
     {
 
-        if (BeatChanged())
+        if (BeatChanged() && (conductor.songPositionInBeats % beatsPerMove == 0))
         {
             if (movedUp)
                 moveDown(morcego);

@@ -13,6 +13,12 @@ public class OogaBoongaAttack : MonoBehaviour
 
     private bool movedRight = false;
 
+    [SerializeField]
+    private int dmg = 2;
+
+    [SerializeField]
+    private int beatsPerMove = 3;
+
 
     private bool CanMove(Vector2 direction)
     {
@@ -24,6 +30,12 @@ public class OogaBoongaAttack : MonoBehaviour
 
         if (hit != null && (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Player")))
         {
+            if (hit.gameObject.CompareTag("Player"))
+            {
+                PlayerController playerScript = (PlayerController)hit.gameObject.GetComponent(typeof(PlayerController));
+                playerScript.TakeDamage(dmg);
+                return false;
+            }
             return false;
         }
 
@@ -79,7 +91,7 @@ public class OogaBoongaAttack : MonoBehaviour
         //Debug.Log(playerPosition);
         // InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
         // if (conductor.BeatChanged())
-        if (BeatChanged())
+        if (BeatChanged() && (conductor.songPositionInBeats % beatsPerMove == 0))
         {
             if (movedRight)
                 moveLeft(oogaboonga);

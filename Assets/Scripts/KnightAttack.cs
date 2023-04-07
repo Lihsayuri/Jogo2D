@@ -23,6 +23,12 @@ public class KnightAttack : MonoBehaviour
     [SerializeField]
     private Tilemap wallTilemap;
 
+    [SerializeField]
+    private int dmg = 3;
+
+    [SerializeField]
+    private int beatsPerMove = 2;
+
 
     private bool CanMove(Vector2 direction)
     {
@@ -34,6 +40,12 @@ public class KnightAttack : MonoBehaviour
 
         if (hit != null && (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Player")))
         {
+            if (hit.gameObject.CompareTag("Player"))
+            {
+                PlayerController playerScript = (PlayerController)hit.gameObject.GetComponent(typeof(PlayerController));
+                playerScript.TakeDamage(dmg);
+                return false;
+            }
             return false;
         }
 
@@ -118,7 +130,7 @@ public class KnightAttack : MonoBehaviour
         //Debug.Log(playerPosition);
         // InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
         // if (conductor.BeatChanged())
-        if (BeatChanged())
+        if (BeatChanged() && (conductor.songPositionInBeats % beatsPerMove == 0))
         {
             MoveTowardsPlayer();
         }

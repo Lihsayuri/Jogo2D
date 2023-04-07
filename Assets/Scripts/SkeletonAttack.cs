@@ -28,6 +28,9 @@ public class SkeletonAttack : MonoBehaviour
     [SerializeField]
     private int dmg = 1;
 
+    [SerializeField]
+    private int beatsPerMove = 2;
+
     private void move(GameObject esqueleto, Vector3 direction)
     {
         // Pega a posição atual do esqueleto
@@ -123,7 +126,7 @@ public class SkeletonAttack : MonoBehaviour
     void Update()
     {
 
-        if (BeatChanged())
+        if (BeatChanged() && (conductor.songPositionInBeats % beatsPerMove == 0))
         {
             MoveTowardsPlayer();
         }
