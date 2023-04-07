@@ -15,7 +15,7 @@ public class BatAttack : MonoBehaviour
     private Sprite [] _liveSprites;
 
     [SerializeField]
-    private Image _liveImage;
+    private GameObject _liveImage;
 
     private int lastPositionInBeats;
 
@@ -24,7 +24,8 @@ public class BatAttack : MonoBehaviour
 
     public void TakeDamageBat(int damage)
     {
-        _liveImage.sprite = _liveSprites[0];
+        Debug.Log("Bat took damage");
+       _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
         Destroy(morcego);
         return;
 

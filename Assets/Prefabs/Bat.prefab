@@ -172,13 +172,9 @@ MonoBehaviour:
   morcego: {fileID: 0}
   conductor: {fileID: 0}
   _liveSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _liveImage: {fileID: 0}
+  - {fileID: 21300000, guid: b1ea61b5f310bd244907736964a5a25d, type: 3}
+  - {fileID: 21300000, guid: 2eb9917a49d0d9748ba3929074a81aca, type: 3}
+  _liveImage: {fileID: 3026409225975210059}
 --- !u!114 &801679000917119704
 MonoBehaviour:
   m_ObjectHideFlags: 0
