@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
+    public GameObject player;
+
     private PlayerMovement controls;
 
     [SerializeField]
@@ -52,25 +54,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
-        raycast_mask = LayerMask.GetMask("Enemies");
     }
 
     private void Move(Vector2 direction)
     {
         if (conductor.seconds_off_beat() < beat_detection_range) {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, raycast_mask);
-            Debug.Log(hit.collider);
-            Debug.Log(raycast_mask);
-            if (hit.collider == null)
-            {
-                if (CanMove(direction))
-                    transform.position += (Vector3)direction;
-            }
-            else
-            {
-                Debug.Log(hit.collider.gameObject);
-                hit.collider.gameObject.SetActive(false);
-            }
+
+            if (CanMove(direction))
+                transform.position += (Vector3)direction;
+
         }
 
     }
@@ -86,21 +78,55 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        //Debug.Log("hey");
-        // ..and if the GameObject you intersect has the tag 'Pick Up' assigned to it..
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            other.gameObject.SetActive(false);
-        }
-    }
 
     private bool CanMove(Vector2 direction)
     {
-        Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)direction);
+        Vector3 newPosition = player.transform.position + (Vector3)direction;
+        Vector2 boxSize = player.GetComponent<BoxCollider2D>().size;
+
+        // Verifica se há algum objeto com BoxCollider2D na próxima posição
+        Collider2D hit = Physics2D.OverlapBox(newPosition, boxSize, 0f);
+
+        if (hit != null && (hit.gameObject.CompareTag("Enemy")))
+        {
+            Debug.Log("ENTREI NO HIT DO CAN MOVE");
+            BatAttack batScriptConfere = hit.gameObject.GetComponent<BatAttack>() as BatAttack;
+            if (batScriptConfere != null)
+            {
+                batScriptConfere.TakeDamageBat(1);
+                return false;
+            }
+            
+            SlimeAttack slimeScript = hit.gameObject.GetComponent<SlimeAttack>() as SlimeAttack;
+            if (slimeScript != null){
+                slimeScript.TakeDamageSlime(1);
+                return false;
+            }
+            OogaBoongaAttack oogaScript = hit.gameObject.GetComponent<OogaBoongaAttack>() as OogaBoongaAttack;
+            if (oogaScript != null){
+                oogaScript.TakeDamageOoga(1);
+                return false;
+            }
+
+            SkeletonAttack skeletonScript = hit.gameObject.GetComponent<SkeletonAttack>() as SkeletonAttack;
+            if (skeletonScript != null){
+                skeletonScript.TakeDamageSkeleton(1);
+                return false;
+            }
+
+            KnightAttack knightScript = hit.gameObject.GetComponent<KnightAttack>() as KnightAttack;
+            if (knightScript != null){
+                knightScript.TakeDamageKnight(1);
+                return false;
+            }
+
+            return false;
+        }
+
+        Vector3Int gridPosition = groundTilemap.WorldToCell(newPosition);
         if (!groundTilemap.HasTile(gridPosition) || wallTilemap.HasTile(gridPosition))
             return false;
         return true;
+
     }
 }

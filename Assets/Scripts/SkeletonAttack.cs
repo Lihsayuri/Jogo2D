@@ -31,6 +31,29 @@ public class SkeletonAttack : MonoBehaviour
     [SerializeField]
     private int beatsPerMove = 2;
 
+    public int vida_esqueleto = 2;
+
+    [SerializeField]
+    private Sprite [] _liveSprites;
+
+    [SerializeField]
+    private GameObject _liveImage;
+
+
+    public void TakeDamageSkeleton(int damage)
+    {
+        Debug.Log("ENTREI NO TAKE DAMAGE ESQUELETO");
+        vida_esqueleto -= damage;
+        Debug.Log("Vida esqueleto: " + vida_esqueleto);
+        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_esqueleto];
+        if (vida_esqueleto <= 0) {
+            Debug.Log("Morreu");
+            _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
+            Destroy(esqueleto);
+            return;
+        }
+    }
+
     private void move(GameObject esqueleto, Vector3 direction)
     {
         // Pega a posição atual do esqueleto
