@@ -418,6 +418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat_4
       objectReference: {fileID: 0}
+    - target: {fileID: 801679000917119682, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 801679000917119704, guid: 9716da6a5fd996640869311af61ad625, type: 3}
       propertyPath: conductor
       value: 
@@ -474,6 +478,18 @@ PrefabInstance:
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627639}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: b1ea61b5f310bd244907736964a5a25d, type: 3}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2eb9917a49d0d9748ba3929074a81aca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9716da6a5fd996640869311af61ad625, type: 3}
 --- !u!4 &97625125 stripped
@@ -731,6 +747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat_3
       objectReference: {fileID: 0}
+    - target: {fileID: 801679000917119682, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 801679000917119704, guid: 9716da6a5fd996640869311af61ad625, type: 3}
       propertyPath: conductor
       value: 
@@ -787,6 +807,18 @@ PrefabInstance:
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627639}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: b1ea61b5f310bd244907736964a5a25d, type: 3}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2eb9917a49d0d9748ba3929074a81aca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9716da6a5fd996640869311af61ad625, type: 3}
 --- !u!4 &267869643 stripped
@@ -1063,6 +1095,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat_5
       objectReference: {fileID: 0}
+    - target: {fileID: 801679000917119682, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 801679000917119704, guid: 9716da6a5fd996640869311af61ad625, type: 3}
       propertyPath: conductor
       value: 
@@ -1119,6 +1155,18 @@ PrefabInstance:
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627639}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: b1ea61b5f310bd244907736964a5a25d, type: 3}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2eb9917a49d0d9748ba3929074a81aca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9716da6a5fd996640869311af61ad625, type: 3}
 --- !u!4 &668032274 stripped
@@ -10927,6 +10975,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat_2
       objectReference: {fileID: 0}
+    - target: {fileID: 801679000917119682, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 801679000917119704, guid: 9716da6a5fd996640869311af61ad625, type: 3}
       propertyPath: conductor
       value: 
@@ -10983,6 +11035,18 @@ PrefabInstance:
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627639}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: b1ea61b5f310bd244907736964a5a25d, type: 3}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2eb9917a49d0d9748ba3929074a81aca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9716da6a5fd996640869311af61ad625, type: 3}
 --- !u!4 &1967280015 stripped
@@ -16027,6 +16091,7 @@ MonoBehaviour:
   wallTilemap: {fileID: 1985500176}
   conductor: {fileID: 874627639}
   beat_detection_range: 0.3
+  vida: 5
 --- !u!95 &1989782248
 Animator:
   serializedVersion: 5
@@ -17569,6 +17634,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 874627639}
     - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
       propertyPath: wallTilemap
       value: 
       objectReference: {fileID: 1985500176}
@@ -17576,6 +17645,22 @@ PrefabInstance:
       propertyPath: groundTilemap
       value: 
       objectReference: {fileID: 848982096}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: b1ea61b5f310bd244907736964a5a25d, type: 3}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: _liveSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2eb9917a49d0d9748ba3929074a81aca, type: 3}
+    - target: {fileID: 5044416267583391917, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9716da6a5fd996640869311af61ad625, type: 3}
 --- !u!1001 &3518073522593790770

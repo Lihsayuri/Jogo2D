@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class BatAttack : MonoBehaviour
 {
@@ -10,9 +11,24 @@ public class BatAttack : MonoBehaviour
     [SerializeField]
     private Conductor conductor;
 
+    [SerializeField]
+    private Sprite [] _liveSprites;
+
+    [SerializeField]
+    private Image _liveImage;
+
     private int lastPositionInBeats;
 
     private bool movedUp = false;
+
+
+    public void TakeDamageBat(int damage)
+    {
+        _liveImage.sprite = _liveSprites[0];
+        Destroy(morcego);
+        return;
+
+    }
 
 
     private bool CanMove(Vector2 direction)
@@ -81,5 +97,7 @@ public class BatAttack : MonoBehaviour
             else
                 moveUp(morcego);
         }
+
+
     }
 }
