@@ -58,6 +58,11 @@ public class PlayerController : MonoBehaviour
                 if (CanMove(direction))
                     transform.position += (Vector3)direction;
             }
+            else
+            {
+                Debug.Log(hit.collider.gameObject);
+                hit.collider.gameObject.SetActive(false);
+            }
         }
 
     }
