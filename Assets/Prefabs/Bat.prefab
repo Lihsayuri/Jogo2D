@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 801679000917119710}
   - component: {fileID: 2498787684076183958}
   - component: {fileID: 801679000917119704}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -170,11 +170,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   morcego: {fileID: 0}
   conductor: {fileID: 0}
-  beat_detection_range: 0.15
-  speed: 3
-  movedUp: 0
-  groundTilemap: {fileID: 0}
-  wallTilemap: {fileID: 0}
 --- !u!114 &801679000917119704
 MonoBehaviour:
   m_ObjectHideFlags: 0

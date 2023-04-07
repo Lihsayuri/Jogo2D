@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Conductor conductor;
 
+    private int raycast_mask;
+
     public float beat_detection_range = 0.15f;
 
 
@@ -42,13 +44,20 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
+        raycast_mask = LayerMask.GetMask("Enemies");
     }
 
     private void Move(Vector2 direction)
     {
         if (conductor.seconds_off_beat() < beat_detection_range) {
-            if (CanMove(direction))
-                transform.position += (Vector3)direction;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, raycast_mask);
+            Debug.Log(hit.collider);
+            Debug.Log(raycast_mask);
+            if (hit.collider == null)
+            {
+                if (CanMove(direction))
+                    transform.position += (Vector3)direction;
+            }
         }
 
     }
@@ -69,11 +78,5 @@ public class PlayerController : MonoBehaviour
         if (!groundTilemap.HasTile(gridPosition) || wallTilemap.HasTile(gridPosition))
             return false;
         return true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

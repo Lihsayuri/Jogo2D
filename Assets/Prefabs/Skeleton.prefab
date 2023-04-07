@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8229489827461122727}
   - component: {fileID: 8229489827461122726}
   - component: {fileID: 9099030985372267515}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -186,3 +186,6 @@ MonoBehaviour:
   esqueleto: {fileID: 8229489827461122749}
   conductor: {fileID: 0}
   beat_detection_range: 0.15
+  speed: 3
+  groundTilemap: {fileID: 0}
+  wallTilemap: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3518073523495296117}
   - component: {fileID: 6745792497072667101}
   - component: {fileID: 4834362402838816342}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OogaBoonga
   m_TagString: Enemy
   m_Icon: {fileID: 0}

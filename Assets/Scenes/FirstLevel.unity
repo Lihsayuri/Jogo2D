@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton_2
       objectReference: {fileID: 0}
+    - target: {fileID: 8229489827461122749, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: conductor
       value: 
@@ -384,7 +388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &97455155
 Transform:
   m_ObjectHideFlags: 0
@@ -692,6 +696,10 @@ PrefabInstance:
     - target: {fileID: 8229489827461122749, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_Name
       value: Skeleton_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229489827461122749, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: conductor
@@ -1322,6 +1330,10 @@ PrefabInstance:
     - target: {fileID: 8229489827461122749, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_Name
       value: Skeleton_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229489827461122749, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: conductor
@@ -10483,6 +10495,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton_4
       objectReference: {fileID: 0}
+    - target: {fileID: 8229489827461122749, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9099030985372267515, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: conductor
       value: 
@@ -10748,7 +10764,6 @@ GameObject:
   - component: {fileID: 1985500174}
   - component: {fileID: 1985500173}
   - component: {fileID: 1985500172}
-  - component: {fileID: 1985500177}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -15607,32 +15622,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!61 &1985500177
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985500170}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 72, y: 30}
-  m_EdgeRadius: 0
 --- !u!1 &1989782242
 GameObject:
   m_ObjectHideFlags: 0
@@ -15646,7 +15635,7 @@ GameObject:
   - component: {fileID: 1989782246}
   - component: {fileID: 1989782245}
   - component: {fileID: 1989782247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

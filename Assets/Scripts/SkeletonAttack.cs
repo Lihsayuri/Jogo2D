@@ -24,13 +24,13 @@ namespace SkeletonNamespace {
         [SerializeField]
         private Tilemap wallTilemap;
 
-        public void moveRight(GameObject esqueleto)
+        private void move(GameObject esqueleto, Vector3 direction)
         {
             // Pega a posição atual do esqueleto
             Vector3 currentPosition = esqueleto.transform.position;
 
             // Calcula a próxima posição do esqueleto para a direita
-            Vector3 nextPosition = currentPosition + new Vector3(1, 0, 0);
+            Vector3 nextPosition = currentPosition + direction;
 
             // Verifica se pode se mover para a direita sem bater em uma parede
             if (CanMove(nextPosition - currentPosition))
@@ -38,55 +38,6 @@ namespace SkeletonNamespace {
                 esqueleto.transform.position = nextPosition;
             }
         }
-
-        // Move o esqueleto uma unidade para a esquerda
-        public void moveLeft(GameObject esqueleto)
-        {
-            // Pega a posição atual do esqueleto
-            Vector3 currentPosition = esqueleto.transform.position;
-
-            // Calcula a próxima posição do esqueleto para a esquerda
-            Vector3 nextPosition = currentPosition + new Vector3(-1, 0, 0);
-
-            // Verifica se pode se mover para a esquerda sem bater em uma parede
-            if (CanMove(nextPosition - currentPosition))
-            {
-                esqueleto.transform.position = nextPosition;
-            }
-        }
-
-        // Move o esqueleto uma unidade para frente
-        public void moveUp(GameObject esqueleto)
-        {
-            // Pega a posição atual do esqueleto
-            Vector3 currentPosition = esqueleto.transform.position;
-
-            // Calcula a próxima posição do esqueleto para frente
-            Vector3 nextPosition = currentPosition + new Vector3(0, 1, 0);
-
-            // Verifica se pode se mover para frente sem bater em uma parede
-            if (CanMove(nextPosition - currentPosition))
-            {
-                esqueleto.transform.position = nextPosition;
-            }
-        }
-
-        // Move o esqueleto uma unidade para trás
-        public void moveDown(GameObject esqueleto)
-        {
-            // Pega a posição atual do esqueleto
-            Vector3 currentPosition = esqueleto.transform.position;
-
-            // Calcula a próxima posição do esqueleto para trás
-            Vector3 nextPosition = currentPosition + new Vector3(0, -1, 0);
-
-            // Verifica se pode se mover para trás sem bater em uma parede
-            if (CanMove(nextPosition - currentPosition))
-            {
-                esqueleto.transform.position = nextPosition;
-            }
-        }
-
 
         private bool CanMove(Vector2 direction)
         {
@@ -126,24 +77,17 @@ namespace SkeletonNamespace {
                 {
                     closestVector = Vector3.down;
                 }
-
-                if (closestVector == Vector3.right)
+                //RaycastHit2D hit = Physics2D.Raycast(esqueleto.transform.position, (Vector2)closestVector, 1f);
+                //int t = LayerMask.GetMask("Player");
+                //t += LayerMask.GetMask("Enemies");
+                //Debug.Log(t);
+                //Debug.Log(hit.distance);
+                RaycastHit hit;
+                if (Physics.Raycast(esqueleto.transform.position, closestVector, out hit, 1f))
                 {
-                    moveRight(esqueleto);
+                    move(esqueleto, closestVector);
                 }
-                else if (closestVector == Vector3.up)
-                {
-                    moveUp(esqueleto);
-                }
-                else if (closestVector == Vector3.left)
-                {
-                    moveLeft(esqueleto);
-                }
-                else if (closestVector == Vector3.down)
-                {
-                    moveDown(esqueleto);
-                }
-
+                Debug.Log(hit.distance);
             }
 
         }
