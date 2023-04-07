@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using SkeletonNamespace;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
 
     private PlayerMovement controls;
+
+    [SerializeField]
+    private Sprite [] _liveSprites;
+
+    [SerializeField]
+    private Image _liveImage;
 
     [SerializeField]
     private Tilemap groundTilemap;
@@ -21,6 +28,8 @@ public class PlayerController : MonoBehaviour
     private int raycast_mask;
 
     public float beat_detection_range = 0.15f;
+
+    public int vida = 5;
 
 
     private void Awake()
@@ -60,6 +69,16 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+    }
+
+    public void TakeDamage(int damage)
+    {
+        vida -= damage;
+        _liveImage.sprite = _liveSprites[vida];
+        if (vida <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
