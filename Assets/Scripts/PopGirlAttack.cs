@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class KnightAttack : MonoBehaviour
+public class PopGirlAttack : MonoBehaviour
 {
 
     public GameObject knight;
@@ -24,7 +24,7 @@ public class KnightAttack : MonoBehaviour
     private Tilemap wallTilemap;
 
     [SerializeField]
-    private int dmg = 2;
+    private int dmg = 3;
 
     [SerializeField]
     private int beatsPerMove = 2;

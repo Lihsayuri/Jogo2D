@@ -74,7 +74,8 @@ public class PlayerController : MonoBehaviour
             _liveImage.sprite = _liveSprites[vida];
         else
         {
-            gameObject.SetActive(false);
+            _liveImage.sprite = _liveSprites[0];
+            Destroy(player);
         }
     }
 
