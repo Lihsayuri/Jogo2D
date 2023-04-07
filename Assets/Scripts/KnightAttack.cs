@@ -21,77 +21,41 @@ public class KnightAttack : MonoBehaviour
     [SerializeField]
     private Tilemap wallTilemap;
 
-    public void moveRight(GameObject knight)
-    {
-        // Pega a posição atual do knight
-        Vector3 currentPosition = knight.transform.position;
-
-        // Calcula a próxima posição do knight para a direita
-        Vector3 nextPosition = currentPosition + new Vector3(1, 0, 0);
-
-        // Verifica se pode se mover para a direita sem bater em uma parede
-        if (CanMove(nextPosition - currentPosition))
-        {
-            knight.transform.position = nextPosition;
-        }
-    }
-
-    // Move o knight uma unidade para a esquerda
-    public void moveLeft(GameObject knight)
-    {
-        // Pega a posição atual do knight
-        Vector3 currentPosition = knight.transform.position;
-
-        // Calcula a próxima posição do knight para a esquerda
-        Vector3 nextPosition = currentPosition + new Vector3(-1, 0, 0);
-
-        // Verifica se pode se mover para a esquerda sem bater em uma parede
-        if (CanMove(nextPosition - currentPosition))
-        {
-            knight.transform.position = nextPosition;
-        }
-    }
-
-    // Move o knight uma unidade para frente
-    public void moveUp(GameObject knight)
-    {
-        // Pega a posição atual do knight
-        Vector3 currentPosition = knight.transform.position;
-
-        // Calcula a próxima posição do knight para frente
-        Vector3 nextPosition = currentPosition + new Vector3(0, 1, 0);
-
-        // Verifica se pode se mover para frente sem bater em uma parede
-        if (CanMove(nextPosition - currentPosition))
-        {
-            knight.transform.position = nextPosition;
-        }
-    }
-
-    // Move o knight uma unidade para trás
-    public void moveDown(GameObject knight)
-    {
-        // Pega a posição atual do knight
-        Vector3 currentPosition = knight.transform.position;
-
-        // Calcula a próxima posição do knight para trás
-        Vector3 nextPosition = currentPosition + new Vector3(0, -1, 0);
-
-        // Verifica se pode se mover para trás sem bater em uma parede
-        if (CanMove(nextPosition - currentPosition))
-        {
-            knight.transform.position = nextPosition;
-        }
-    }
-
 
     private bool CanMove(Vector2 direction)
     {
-        Vector3Int gridPosition = groundTilemap.WorldToCell(knight.transform.position + (Vector3)direction);
+        Vector3 newPosition = knight.transform.position + (Vector3)direction;
+        Vector2 boxSize = knight.GetComponent<BoxCollider2D>().size;
+
+        // Verifica se há algum objeto com BoxCollider2D na próxima posição
+        Collider2D hit = Physics2D.OverlapBox(newPosition, boxSize, 0f);
+
+        if (hit != null && (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Player")))
+        {
+            return false;
+        }
+
+        Vector3Int gridPosition = groundTilemap.WorldToCell(newPosition);
         if (!groundTilemap.HasTile(gridPosition) || wallTilemap.HasTile(gridPosition))
             return false;
         return true;
     }
+
+    private void move(GameObject esqueleto, Vector3 direction)
+    {
+        // Pega a posição atual do esqueleto
+        Vector3 currentPosition = esqueleto.transform.position;
+
+        // Calcula a próxima posição do esqueleto para a direita
+        Vector3 nextPosition = currentPosition + direction;
+
+        // Verifica se pode se mover para a direita sem bater em uma parede
+        if (CanMove(nextPosition - currentPosition))
+        {
+            esqueleto.transform.position = nextPosition;
+        }
+    }
+
 
     void MoveTowardsPlayer()
     {
@@ -101,47 +65,28 @@ public class KnightAttack : MonoBehaviour
         Vector3 closestVector = Vector3.right;
         float smallestAngle = Mathf.Abs(Vector3.Angle(playerDirection, closestVector));
 
-        if (playerDirection.x == 0 && playerDirection.y == 0)
+
+    
+        if (smallestAngle > Mathf.Abs(Vector3.Angle(playerDirection, Vector3.up)))
         {
-            return;
+            smallestAngle = Mathf.Abs(Vector3.Angle(playerDirection, Vector3.up));
+            closestVector = Vector3.up;
         }
 
-        else{
-            if (smallestAngle > Mathf.Abs(Vector3.Angle(playerDirection, Vector3.up)))
-            {
-                smallestAngle = Mathf.Abs(Vector3.Angle(playerDirection, Vector3.up));
-                closestVector = Vector3.up;
-            }
-
-            if (smallestAngle > Mathf.Abs(Vector3.Angle(playerDirection, Vector3.left)))
-            {
-                smallestAngle = Mathf.Abs(Vector3.Angle(playerDirection, Vector3.left));
-                closestVector = Vector3.left;
-            }
-
-            if (smallestAngle > Mathf.Abs(Vector3.Angle(playerDirection, Vector3.down)))
-            {
-                closestVector = Vector3.down;
-            }
-
-            if (closestVector == Vector3.right)
-            {
-                moveRight(knight);
-            }
-            else if (closestVector == Vector3.up)
-            {
-                moveUp(knight);
-            }
-            else if (closestVector == Vector3.left)
-            {
-                moveLeft(knight);
-            }
-            else if (closestVector == Vector3.down)
-            {
-                moveDown(knight);
-            }
-
+        if (smallestAngle > Mathf.Abs(Vector3.Angle(playerDirection, Vector3.left)))
+        {
+            smallestAngle = Mathf.Abs(Vector3.Angle(playerDirection, Vector3.left));
+            closestVector = Vector3.left;
         }
+
+        if (smallestAngle > Mathf.Abs(Vector3.Angle(playerDirection, Vector3.down)))
+        {
+            closestVector = Vector3.down;
+        }
+
+        move(knight, closestVector);
+
+        
 
     }
 

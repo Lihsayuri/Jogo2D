@@ -14,6 +14,23 @@ public class BatAttack : MonoBehaviour
 
     private bool movedUp = false;
 
+
+    private bool CanMove(Vector2 direction)
+    {
+        Vector3 newPosition = morcego.transform.position + (Vector3)direction;
+        Vector2 boxSize = morcego.GetComponent<BoxCollider2D>().size;
+
+        // Verifica se há algum objeto com BoxCollider2D na próxima posição
+        Collider2D hit = Physics2D.OverlapBox(newPosition, boxSize, 0f);
+
+        if (hit != null && (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Player")))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     public void moveUp(GameObject morcego)
     {
         // Pega a posição atual do morcego
@@ -22,27 +39,25 @@ public class BatAttack : MonoBehaviour
         // Calcula a próxima posição do morcego para frente
         Vector3 nextPosition = currentPosition + new Vector3(0, 1, 0);
 
-        morcego.transform.position = nextPosition;
-
-        movedUp = true;
+        if (CanMove(nextPosition - currentPosition)){
+            morcego.transform.position = nextPosition;
+            movedUp = true;
+        }
     }
 
-    // Move o morcego uma unidade para trás
     public void moveDown(GameObject morcego)
     {
-        // Pega a posição atual do morcego
-    Vector3 currentPosition = morcego.transform.position;
+        Vector3 currentPosition = morcego.transform.position;
 
-        // Calcula a próxima posição do morcego para trás
-    Vector3 nextPosition = currentPosition + new Vector3(0, -1, 0);
-
-    morcego.transform.position = nextPosition;
-
-    movedUp = false;
+        Vector3 nextPosition = currentPosition + new Vector3(0, -1, 0);
 
 
+        if (CanMove(nextPosition - currentPosition)){
+            morcego.transform.position = nextPosition;
+            movedUp = false;
+        }
     }
-    // Start is called before the first frame update
+
     public bool BeatChanged(){
         if (lastPositionInBeats == conductor.songPositionInBeats)
             return false;
@@ -58,9 +73,7 @@ public class BatAttack : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(playerPosition);
-        // InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-        // if (conductor.BeatChanged())
+
         if (BeatChanged())
         {
             if (movedUp)

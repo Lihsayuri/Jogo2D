@@ -14,36 +14,52 @@ public class OogaBoongaAttack : MonoBehaviour
     private bool movedRight = false;
 
 
-    public void moveRight(GameObject esqueleto)
+    private bool CanMove(Vector2 direction)
     {
-        // Pega a posição atual do esqueleto
-        Vector3 currentPosition = esqueleto.transform.position;
+        Vector3 newPosition = oogaboonga.transform.position + (Vector3)direction;
+        Vector2 boxSize = oogaboonga.GetComponent<BoxCollider2D>().size;
 
-        // Calcula a próxima posição do esqueleto para a direita
+        // Verifica se há algum objeto com BoxCollider2D na próxima posição
+        Collider2D hit = Physics2D.OverlapBox(newPosition, boxSize, 0f);
+
+        if (hit != null && (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Player")))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public void moveRight(GameObject oogaboonga)
+    {
+        // Pega a posição atual do oogaboonga
+        Vector3 currentPosition = oogaboonga.transform.position;
+
+        // Calcula a próxima posição do oogaboonga para a direita
         Vector3 nextPosition = currentPosition + new Vector3(2, 0, 0);
 
-
-        esqueleto.transform.position = nextPosition;
-
-        movedRight= true;
-        
+        if (CanMove(nextPosition - currentPosition)){
+            oogaboonga.transform.position = nextPosition;
+            movedRight= true;
+        }
     }
 
-    // Move o esqueleto uma unidade para a esquerda
-    public void moveLeft(GameObject esqueleto)
+    // Move o oogaboonga uma unidade para a esquerda
+    public void moveLeft(GameObject oogaboonga)
     {
-        // Pega a posição atual do esqueleto
-        Vector3 currentPosition = esqueleto.transform.position;
+        // Pega a posição atual do oogaboonga
+        Vector3 currentPosition = oogaboonga.transform.position;
 
-        // Calcula a próxima posição do esqueleto para a esquerda
+        // Calcula a próxima posição do oogaboonga para a esquerda
         Vector3 nextPosition = currentPosition + new Vector3(-2, 0, 0);
 
-   
-        esqueleto.transform.position = nextPosition;
-
-        movedRight = false;
-        
+        if (CanMove(nextPosition - currentPosition)){
+            oogaboonga.transform.position = nextPosition;
+            movedRight = false;
+        } 
     }
+
+
  
     public bool BeatChanged(){
         if (lastPositionInBeats == conductor.songPositionInBeats)

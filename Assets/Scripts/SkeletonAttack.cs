@@ -39,9 +39,22 @@ namespace SkeletonNamespace {
             }
         }
 
+
+
         private bool CanMove(Vector2 direction)
         {
-            Vector3Int gridPosition = groundTilemap.WorldToCell(esqueleto.transform.position + (Vector3)direction);
+            Vector3 newPosition = esqueleto.transform.position + (Vector3)direction;
+            Vector2 boxSize = esqueleto.GetComponent<BoxCollider2D>().size;
+
+            // Verifica se há algum objeto com BoxCollider2D na próxima posição
+            Collider2D hit = Physics2D.OverlapBox(newPosition, boxSize, 0f);
+
+            if (hit != null && (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Player")))
+            {
+                return false;
+            }
+
+            Vector3Int gridPosition = groundTilemap.WorldToCell(newPosition);
             if (!groundTilemap.HasTile(gridPosition) || wallTilemap.HasTile(gridPosition))
                 return false;
             return true;
@@ -55,40 +68,26 @@ namespace SkeletonNamespace {
             Vector3 closestVector = Vector3.right;
             float smallestAngle = Mathf.Abs(Vector3.Angle(playerDirection, closestVector));
 
-            if (playerDirection.x == 0 && playerDirection.y == 0)
+
+            if (smallestAngle > Mathf.Abs(Vector3.Angle(playerDirection, Vector3.up)))
             {
-                return;
+                smallestAngle = Mathf.Abs(Vector3.Angle(playerDirection, Vector3.up));
+                closestVector = Vector3.up;
             }
 
-            else{
-                if (smallestAngle > Mathf.Abs(Vector3.Angle(playerDirection, Vector3.up)))
-                {
-                    smallestAngle = Mathf.Abs(Vector3.Angle(playerDirection, Vector3.up));
-                    closestVector = Vector3.up;
-                }
-
-                if (smallestAngle > Mathf.Abs(Vector3.Angle(playerDirection, Vector3.left)))
-                {
-                    smallestAngle = Mathf.Abs(Vector3.Angle(playerDirection, Vector3.left));
-                    closestVector = Vector3.left;
-                }
-
-                if (smallestAngle > Mathf.Abs(Vector3.Angle(playerDirection, Vector3.down)))
-                {
-                    closestVector = Vector3.down;
-                }
-                //RaycastHit2D hit = Physics2D.Raycast(esqueleto.transform.position, (Vector2)closestVector, 1f);
-                //int t = LayerMask.GetMask("Player");
-                //t += LayerMask.GetMask("Enemies");
-                //Debug.Log(t);
-                //Debug.Log(hit.distance);
-                RaycastHit hit;
-                if (Physics.Raycast(esqueleto.transform.position, closestVector, out hit, 1f))
-                {
-                    move(esqueleto, closestVector);
-                }
-                Debug.Log(hit.distance);
+            if (smallestAngle > Mathf.Abs(Vector3.Angle(playerDirection, Vector3.left)))
+            {
+                smallestAngle = Mathf.Abs(Vector3.Angle(playerDirection, Vector3.left));
+                closestVector = Vector3.left;
             }
+
+            if (smallestAngle > Mathf.Abs(Vector3.Angle(playerDirection, Vector3.down)))
+            {
+                closestVector = Vector3.down;
+            }
+
+            move(esqueleto, closestVector);
+
 
         }
 
@@ -110,14 +109,11 @@ namespace SkeletonNamespace {
         {
             lastPositionInBeats = conductor.songPositionInBeats;
             InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-            // Debug.Log(esqueleto.transform.position);
         }
 
         void Update()
         {
-            //Debug.Log(playerPosition);
-            // InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-            // if (conductor.BeatChanged())
+
             if (BeatChanged())
             {
                 MoveTowardsPlayer();
@@ -125,20 +121,3 @@ namespace SkeletonNamespace {
         }
     }
 }
-
-
-
-
-
-
-
-//   private void MoveEsqueleto()
-//         {
-//             if (conductor.seconds_off_beat() < beat_detection_range)
-//             {
-//                 Vector3 direction = playerPosition - esqueleto.transform.position;
-//                 direction.z = 0f; // mantém o esqueleto na mesma altura que o player
-//                 direction.Normalize();
-//                 esqueleto.transform.position += direction * speed * Time.deltaTime;
-//             }
-//         }
