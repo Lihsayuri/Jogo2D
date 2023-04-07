@@ -108,6 +108,12 @@ public class PlayerController : MonoBehaviour
                 return false;
             }
 
+            SkeletonAttack skeletonScript = hit.gameObject.GetComponent<SkeletonAttack>() as SkeletonAttack;
+            if (skeletonScript != null){
+                skeletonScript.TakeDamageSkeleton(1);
+                return false;
+            }
+
             return false;
         }
 
