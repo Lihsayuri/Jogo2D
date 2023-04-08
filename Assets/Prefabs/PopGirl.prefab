@@ -117,14 +117,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e0733a150659140824a8c419f7fdc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knight: {fileID: 1900804953554534272}
+  popGirl: {fileID: 0}
   player: {fileID: 0}
   conductor: {fileID: 0}
   groundTilemap: {fileID: 0}
   wallTilemap: {fileID: 0}
   dmg: 3
   beatsPerMove: 2
-  vida_knight: 4
+  vida_popGirl: 3
   _liveSprites:
   - {fileID: 21300000, guid: aa0b5bbf07c8f514e86da78af5f62418, type: 3}
   - {fileID: 21300000, guid: 20c00c5dd33cdee46bcd5118050db853, type: 3}

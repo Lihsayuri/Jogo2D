@@ -10348,6 +10348,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &975286859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1900804953554534272, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+  m_PrefabInstance: {fileID: 1900804953985906494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1026962102 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3026409225975210059, guid: 9716da6a5fd996640869311af61ad625, type: 3}
@@ -10503,6 +10508,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1361315401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1900804953554534272, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+  m_PrefabInstance: {fileID: 2065074813}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1408445951
 GameObject:
   m_ObjectHideFlags: 0
@@ -16325,6 +16335,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1989782242}
     - target: {fileID: 5697822450271585056, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: popGirl
+      value: 
+      objectReference: {fileID: 1361315401}
+    - target: {fileID: 5697822450271585056, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627639}
@@ -17876,6 +17890,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1989782242}
+    - target: {fileID: 5697822450271585056, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: popGirl
+      value: 
+      objectReference: {fileID: 975286859}
     - target: {fileID: 5697822450271585056, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
       propertyPath: conductor
       value: 

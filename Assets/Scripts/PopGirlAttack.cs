@@ -1,4 +1,4 @@
-using System.Collections;
+  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class PopGirlAttack : MonoBehaviour
 {
 
-    public GameObject knight;
+    public GameObject popGirl;
 
     public GameObject player;
 
@@ -29,7 +29,7 @@ public class PopGirlAttack : MonoBehaviour
     [SerializeField]
     private int beatsPerMove = 2;
 
-    public int vida_knight = 4;
+    public int vida_popGirl = 4;
 
     [SerializeField]
     private Sprite [] _liveSprites;
@@ -38,24 +38,24 @@ public class PopGirlAttack : MonoBehaviour
     private GameObject _liveImage;
 
 
-    public void TakeDamageKnight(int damage)
+    public void TakeDamagePopGirl(int damage)
     {
-        Debug.Log("ENTREI NO TAKE DAMAGE knight");
-        vida_knight -= damage;
-        Debug.Log("Vida knight: " + vida_knight);
-        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_knight];
-        if (vida_knight <= 0) {
+        Debug.Log("ENTREI NO TAKE DAMAGE popGirl");
+        vida_popGirl -= damage;
+        Debug.Log("Vida popGirl: " + vida_popGirl);
+        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_popGirl];
+        if (vida_popGirl <= 0) {
             Debug.Log("Morreu");
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
-            Destroy(knight);
+            Destroy(popGirl);
             return;
         }
     }
 
     private bool CanMove(Vector2 direction)
     {
-        Vector3 newPosition = knight.transform.position + (Vector3)direction;
-        Vector2 boxSize = knight.GetComponent<BoxCollider2D>().size;
+        Vector3 newPosition = popGirl.transform.position + (Vector3)direction;
+        Vector2 boxSize = popGirl.GetComponent<BoxCollider2D>().size;
 
         // Verifica se há algum objeto com BoxCollider2D na próxima posição
         Collider2D hit = Physics2D.OverlapBox(newPosition, boxSize, 0f);
@@ -95,7 +95,7 @@ public class PopGirlAttack : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
-        Vector3 skeletonPosition = knight.transform.position;
+        Vector3 skeletonPosition = popGirl.transform.position;
         skeletonPosition.y -= 0.25f;
         Vector3 playerDirection = (playerPosition - skeletonPosition).normalized;
         Vector3 closestVector = Vector3.right;
@@ -120,7 +120,7 @@ public class PopGirlAttack : MonoBehaviour
             closestVector = Vector3.down;
         }
 
-        move(knight, closestVector);
+        move(popGirl, closestVector);
 
         
 
@@ -144,7 +144,7 @@ public class PopGirlAttack : MonoBehaviour
     {
         lastPositionInBeats = conductor.songPositionInBeats;
         InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-        // Debug.Log(knight.transform.position);
+        // Debug.Log(popGirl.transform.position);
     }
 
     void Update()

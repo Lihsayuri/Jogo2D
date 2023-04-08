@@ -121,6 +121,20 @@ public class PlayerController : MonoBehaviour
                 return false;
             }
 
+            PopGirlAttack popGirlScript = hit.gameObject.GetComponent<PopGirlAttack>() as PopGirlAttack;
+            if (popGirlScript != null)
+            {
+                popGirlScript.TakeDamagePopGirl(1);
+                return false;
+            }
+
+            BossAttack bossScript = hit.gameObject.GetComponent<BossAttack>() as BossAttack;
+            if (bossScript != null)
+            {
+                bossScript.TakeDamageBoss(1);
+                return false;
+            }
+
             return false;
         }
 

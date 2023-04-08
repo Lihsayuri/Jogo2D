@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class BossAttack : MonoBehaviour
 {
 
-    public GameObject knight;
+    public GameObject boss;
 
     public GameObject player;
 
@@ -29,7 +29,7 @@ public class BossAttack : MonoBehaviour
     [SerializeField]
     private int beatsPerMove = 2;
 
-    public int vida_knight = 5;
+    public int vida_boss = 5;
 
     [SerializeField]
     private Sprite [] _liveSprites;
@@ -38,24 +38,24 @@ public class BossAttack : MonoBehaviour
     private GameObject _liveImage;
 
 
-    public void TakeDamageKnight(int damage)
+    public void TakeDamageBoss(int damage)
     {
-        Debug.Log("ENTREI NO TAKE DAMAGE knight");
-        vida_knight -= damage;
-        Debug.Log("Vida knight: " + vida_knight);
-        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_knight];
-        if (vida_knight <= 0) {
+        Debug.Log("ENTREI NO TAKE DAMAGE boss");
+        vida_boss -= damage;
+        Debug.Log("Vida boss: " + vida_boss);
+        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_boss];
+        if (vida_boss <= 0) {
             Debug.Log("Morreu");
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
-            Destroy(knight);
+            Destroy(boss);
             return;
         }
     }
 
     private bool CanMove(Vector2 direction)
     {
-        Vector3 newPosition = knight.transform.position + (Vector3)direction;
-        Vector2 boxSize = knight.GetComponent<BoxCollider2D>().size;
+        Vector3 newPosition = boss.transform.position + (Vector3)direction;
+        Vector2 boxSize = boss.GetComponent<BoxCollider2D>().size;
 
         // Verifica se há algum objeto com BoxCollider2D na próxima posição
         Collider2D hit = Physics2D.OverlapBox(newPosition, boxSize, 0f);
@@ -95,7 +95,7 @@ public class BossAttack : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
-        Vector3 skeletonPosition = knight.transform.position;
+        Vector3 skeletonPosition = boss.transform.position;
         skeletonPosition.y -= 0.25f;
         Vector3 playerDirection = (playerPosition - skeletonPosition).normalized;
         Vector3 closestVector = Vector3.right;
@@ -120,7 +120,7 @@ public class BossAttack : MonoBehaviour
             closestVector = Vector3.down;
         }
 
-        move(knight, closestVector);
+        move(boss, closestVector);
 
         
 
@@ -144,7 +144,7 @@ public class BossAttack : MonoBehaviour
     {
         lastPositionInBeats = conductor.songPositionInBeats;
         InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-        // Debug.Log(knight.transform.position);
+        // Debug.Log(boss.transform.position);
     }
 
     void Update()
