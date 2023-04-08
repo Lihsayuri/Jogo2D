@@ -38,8 +38,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject gameOverPanel;
 
-    [SerializeField]
-    private GameObject winPanel;
+
 
 
 private void Awake()
@@ -64,7 +63,6 @@ private void Awake()
     {
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
         gameOverPanel.SetActive(false);
-        winPanel.SetActive(false);
     }
 
     private void Move(Vector2 direction)
