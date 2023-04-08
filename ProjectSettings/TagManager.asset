@@ -8,6 +8,7 @@ TagManager:
   - Bat
   - Door
   - Key
+  - Ladder
   layers:
   - Default
   - TransparentFX

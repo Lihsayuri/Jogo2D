@@ -82,7 +82,7 @@ public class SkeletonAttack : MonoBehaviour
         if (hit != null && (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Player")))
         {
             if (hit.gameObject.CompareTag("Player")) {
-                PlayerController playerScript = (PlayerController) hit.gameObject.GetComponent(typeof(PlayerController));
+                PlayerController playerScript = (PlayerController) hit.gameObject.GetComponent<PlayerController>() as PlayerController;
                 playerScript.TakeDamage(dmg);
                 return false;
             }
