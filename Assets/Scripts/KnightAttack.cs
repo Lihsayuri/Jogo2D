@@ -144,14 +144,10 @@ public class KnightAttack : MonoBehaviour
     {
         lastPositionInBeats = conductor.songPositionInBeats;
         InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-        // Debug.Log(knight.transform.position);
     }
 
     void Update()
     {
-        //Debug.Log(playerPosition);
-        // InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-        // if (conductor.BeatChanged())
         if (BeatChanged() && (conductor.songPositionInBeats % beatsPerMove == 0))
         {
             MoveTowardsPlayer();
