@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 174656595}
-  conductor: {fileID: 0}
+  conductor: {fileID: 874627637}
   multiplier: 10
 --- !u!114 &174656597
 MonoBehaviour:
@@ -570,7 +570,7 @@ GameObject:
   - component: {fileID: 712108996}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -588,7 +588,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.55}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -599,7 +599,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 0.8, y: 0.7666979}
   m_EdgeRadius: 0
 --- !u!50 &712108993
 Rigidbody2D:
@@ -682,7 +682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712108991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 5.5, z: 0}
+  m_LocalPosition: {x: 0.5, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -737,14 +737,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380f28061c09ba848b63ce13c17c208f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knight: {fileID: 712108991}
+  boss: {fileID: 712108991}
   player: {fileID: 174656594}
   conductor: {fileID: 874627639}
   groundTilemap: {fileID: 848982096}
   wallTilemap: {fileID: 1985500176}
   dmg: 3
   beatsPerMove: 2
-  vida_knight: 5
+  vida_boss: 5
   _liveSprites:
   - {fileID: 21300000, guid: 1ae1f0242fab4704fbee87f2622bf61c, type: 3}
   - {fileID: 21300000, guid: 41ec00a1f782cc3458cfbe034863c703, type: 3}
