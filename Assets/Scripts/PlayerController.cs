@@ -32,8 +32,11 @@ public class PlayerController : MonoBehaviour
 
     public int vida = 5;
 
+    [SerializeField]
+    private bool hasKey = false;
 
-    private void Awake()
+
+private void Awake()
     {
         controls = new PlayerMovement();
     }
@@ -136,6 +139,29 @@ public class PlayerController : MonoBehaviour
             }
 
             return false;
+        }
+
+        if (hit != null && (hit.gameObject.CompareTag("Door")))
+        {
+            DoorScript doorScript = hit.gameObject.GetComponent<DoorScript>() as DoorScript;
+            if (doorScript.locked && hasKey)
+            {
+                hasKey = false;
+                doorScript.locked = false;
+                doorScript.OpenDoor();
+            }
+            else if (!doorScript.locked)
+            {
+                doorScript.OpenDoor();
+            }
+            return false;
+        }
+
+        if (hit != null && (hit.gameObject.CompareTag("Key")))
+        {
+            hit.gameObject.SetActive(false);
+            hasKey = true;
+            return true;
         }
 
         Vector3Int gridPosition = groundTilemap.WorldToCell(newPosition);
