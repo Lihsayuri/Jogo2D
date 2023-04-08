@@ -35,6 +35,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool hasKey = false;
 
+    [SerializeField]
+    private GameObject gameOverPanel;
+
+    [SerializeField]
+    private GameObject winPanel;
+
 
 private void Awake()
     {
@@ -57,6 +63,8 @@ private void Awake()
     void Start()
     {
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
+        gameOverPanel.SetActive(false);
+        winPanel.SetActive(false);
     }
 
     private void Move(Vector2 direction)
@@ -79,6 +87,7 @@ private void Awake()
         {
             _liveImage.sprite = _liveSprites[0];
             Destroy(player);
+            gameOverPanel.SetActive(true);
         }
     }
 
