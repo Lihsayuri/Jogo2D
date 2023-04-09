@@ -106,6 +106,8 @@ private void Awake()
             metronome.enabled = false;
             gameOverPanel.SetActive(true);
             _liveImage.enabled = false;
+            Conductor conductorScript = conductor.GetComponent<Conductor>() as Conductor;
+            conductorScript.musicSource.Stop();
             conductor.enabled = false;
             return; // Adicionado para interromper a execução do método
         }
