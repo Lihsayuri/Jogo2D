@@ -284,6 +284,10 @@ PrefabInstance:
       propertyPath: groundTilemap
       value: 
       objectReference: {fileID: 848982096}
+    - target: {fileID: 8262402679832038059, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627637}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
 --- !u!4 &56787285 stripped
@@ -303,6 +307,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 116699988}
     m_Modifications:
+    - target: {fileID: 1838651674507716663, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627637}
     - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
       propertyPath: conductor
       value: 
@@ -522,6 +530,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 116699988}
     m_Modifications:
+    - target: {fileID: 1838651674507716663, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627637}
     - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
       propertyPath: conductor
       value: 
@@ -2062,6 +2074,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 116699988}
     m_Modifications:
+    - target: {fileID: 1838651674507716663, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627637}
     - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
       propertyPath: conductor
       value: 
@@ -11208,7 +11224,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 474c1676169a26340948cd2a66334d77, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 126c0dbe0ed5d0440aa35fe84f224d37, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -11306,7 +11322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae2d44876f99254189bbe510950357b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songBpm: 110
+  songBpm: 99
   secPerBeat: 0
   songPosition: 0
   songPositionInBeats: 0
@@ -12238,6 +12254,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 116699988}
     m_Modifications:
+    - target: {fileID: 1838651674507716663, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627637}
     - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
       propertyPath: conductor
       value: 
@@ -13052,6 +13072,10 @@ PrefabInstance:
       propertyPath: groundTilemap
       value: 
       objectReference: {fileID: 848982096}
+    - target: {fileID: 8262402679832038059, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627637}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
 --- !u!4 &1797739680 stripped
@@ -18309,7 +18333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1989782248}
   conductor: {fileID: 874627637}
-  multiplier: 10
+  multiplier: 8
 --- !u!4 &1994524418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1001054390448448104, guid: 7d68715f57d64a945857fbf16b3ca5b1, type: 3}
@@ -20506,6 +20530,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 116699988}
     m_Modifications:
+    - target: {fileID: 1838651674507716663, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627637}
     - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
       propertyPath: conductor
       value: 
@@ -20793,5 +20821,9 @@ PrefabInstance:
       propertyPath: groundTilemap
       value: 
       objectReference: {fileID: 848982096}
+    - target: {fileID: 8262402679832038059, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627637}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}

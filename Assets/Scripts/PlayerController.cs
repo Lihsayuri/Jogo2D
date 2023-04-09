@@ -68,6 +68,7 @@ private void Awake()
     void Start()
     {
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
+        conductor.enabled = true;
         gameOverPanel.SetActive(false);
         metronome.enabled = true;
         winPanel.SetActive(false);
@@ -101,11 +102,11 @@ private void Awake()
         else
         {
             _liveImage.sprite = _liveSprites[0];
-            Time.timeScale = 0;
-            Destroy(player);
+            player.SetActive(false);
             metronome.enabled = false;
             gameOverPanel.SetActive(true);
             _liveImage.enabled = false;
+            conductor.enabled = false;
             return; // Adicionado para interromper a execução do método
         }
     }
