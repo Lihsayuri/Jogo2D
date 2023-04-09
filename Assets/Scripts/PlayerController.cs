@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     private Image metronome;
 
     private bool ganhou = false;
+    
 
 
 private void Awake()
@@ -77,6 +78,8 @@ private void Awake()
     void Update(){
         if (ganhou){
             metronome.enabled = false;
+            Conductor conductorScript = conductor.GetComponent<Conductor>() as Conductor;
+            conductorScript.musicSource.Stop();
             winPanel.SetActive(true);
             _liveImage.enabled = false;
             return;
