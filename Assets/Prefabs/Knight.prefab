@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1905179883231502652}
   - component: {fileID: 1905179883231502595}
   - component: {fileID: 7207280915325550896}
+  - component: {fileID: 8262402679832038059}
   - component: {fileID: 4647756909326753279}
   m_Layer: 7
   m_Name: Knight
@@ -163,6 +164,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6297741c1445d514ebcd9a5a672cc845, type: 3}
   - {fileID: 21300000, guid: 8e509e89b15ef044795bddf024d3eb35, type: 3}
   _liveImage: {fileID: 8427217551867617930}
+--- !u!114 &8262402679832038059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905179883231502594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9bd9f7e9c52a448a65451df7ed7676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4647756909326753279}
+  conductor: {fileID: 0}
+  multiplier: 10
 --- !u!95 &4647756909326753279
 Animator:
   serializedVersion: 5

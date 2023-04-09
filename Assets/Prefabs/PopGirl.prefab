@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e0733a150659140824a8c419f7fdc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popGirl: {fileID: 0}
+  popGirl: {fileID: 1900804953554534272}
   player: {fileID: 0}
   conductor: {fileID: 0}
   groundTilemap: {fileID: 0}

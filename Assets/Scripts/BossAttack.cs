@@ -24,7 +24,7 @@ public class BossAttack : MonoBehaviour
     private Tilemap wallTilemap;
 
     [SerializeField]
-    private int dmg = 3;
+    private int dmg = 2;
 
     [SerializeField]
     private int beatsPerMove = 2;
@@ -37,6 +37,8 @@ public class BossAttack : MonoBehaviour
     [SerializeField]
     private GameObject _liveImage;
 
+    public bool morreu = false;
+
 
     public void TakeDamageBoss(int damage)
     {
@@ -47,6 +49,7 @@ public class BossAttack : MonoBehaviour
         if (vida_boss <= 0) {
             Debug.Log("Morreu");
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
+            morreu = true;
             Destroy(boss);
             return;
         }

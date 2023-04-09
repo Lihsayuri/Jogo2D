@@ -38,7 +38,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject gameOverPanel;
 
+    [SerializeField]
+    private GameObject winPanel;
 
+    [SerializeField]
+    private Image metronome;
+
+    private bool ganhou = false;
 
 
 private void Awake()
@@ -63,6 +69,17 @@ private void Awake()
     {
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
         gameOverPanel.SetActive(false);
+        metronome.enabled = true;
+        winPanel.SetActive(false);
+    }
+
+    void Update(){
+        if (ganhou){
+            metronome.enabled = false;
+            winPanel.SetActive(true);
+            _liveImage.enabled = false;
+            return;
+        }
     }
 
     private void Move(Vector2 direction)
@@ -84,8 +101,12 @@ private void Awake()
         else
         {
             _liveImage.sprite = _liveSprites[0];
+            Time.timeScale = 0;
             Destroy(player);
+            metronome.enabled = false;
             gameOverPanel.SetActive(true);
+            _liveImage.enabled = false;
+            return; // Adicionado para interromper a execução do método
         }
     }
 
@@ -142,8 +163,13 @@ private void Awake()
             if (bossScript != null)
             {
                 bossScript.TakeDamageBoss(1);
+                if (bossScript.morreu)
+                {
+                    // O objeto do boss foi destruído
+                    ganhou = true;
+                }
                 return false;
-            }
+            } 
 
             return false;
         }
