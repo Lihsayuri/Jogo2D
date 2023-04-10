@@ -9,6 +9,11 @@ TagManager:
   - Door
   - Key
   - Ladder
+  - SimpleSword
+  - Potion
+  - Chest
+  - Knife
+  - SimpleAxe
   layers:
   - Default
   - TransparentFX

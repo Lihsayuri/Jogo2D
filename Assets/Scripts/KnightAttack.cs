@@ -43,13 +43,14 @@ public class KnightAttack : MonoBehaviour
         Debug.Log("ENTREI NO TAKE DAMAGE knight");
         vida_knight -= damage;
         Debug.Log("Vida knight: " + vida_knight);
-        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_knight];
         if (vida_knight <= 0) {
             Debug.Log("Morreu");
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
             Destroy(knight);
             return;
         }
+        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_knight];
+
     }
 
     private bool CanMove(Vector2 direction)

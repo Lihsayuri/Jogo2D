@@ -14,6 +14,9 @@ public class SlimeAttack : MonoBehaviour
     private GameObject _liveImage;
     public void TakeDamageSlime(int damage)
     {
+        if (damage == 0){
+            return;
+        }
         _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
         Destroy(slime);
         return;

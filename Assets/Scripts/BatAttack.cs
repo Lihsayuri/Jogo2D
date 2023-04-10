@@ -31,6 +31,9 @@ public class BatAttack : MonoBehaviour
     public void TakeDamageBat(int damage)
     {
         Debug.Log("Bat took damage");
+        if (damage == 0){
+            return;
+        }
        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
         Destroy(morcego);
         return;

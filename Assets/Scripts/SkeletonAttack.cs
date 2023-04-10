@@ -45,13 +45,13 @@ public class SkeletonAttack : MonoBehaviour
         Debug.Log("ENTREI NO TAKE DAMAGE ESQUELETO");
         vida_esqueleto -= damage;
         Debug.Log("Vida esqueleto: " + vida_esqueleto);
-        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_esqueleto];
         if (vida_esqueleto <= 0) {
             Debug.Log("Morreu");
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
             Destroy(esqueleto);
             return;
         }
+        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_esqueleto];
     }
 
     private void move(GameObject esqueleto, Vector3 direction)

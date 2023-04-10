@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,8 +46,17 @@ public class PlayerController : MonoBehaviour
     private Image metronome;
 
     private bool ganhou = false;
-    
 
+    private List<string> weapons = new List<string> ();
+
+    private Dictionary<string, int> weaponDamage = new Dictionary<string, int> ();
+
+    [SerializeField] 
+    private GameObject NewWeapon;
+
+    [SerializeField]
+    private GameObject WeaponSelected;
+    
 
 private void Awake()
     {
@@ -63,11 +73,24 @@ private void Awake()
         controls.Disable();
     }
 
+
+    private void PreencheDicionario(){
+        weaponDamage.Add("SimpleSword", 1);
+        weaponDamage.Add("Knife", 1);
+        weaponDamage.Add("SimpleAxe", 1);
+        weaponDamage.Add("DoubleAxe", 2);
+        weaponDamage.Add("Hammer", 2);
+        weaponDamage.Add("PersianSaber", 3);
+        weaponDamage.Add("Mace", 3);
+        weaponDamage.Add("FireSword", 4);
+    }
+
     
 
     // Start is called before the first frame update
     void Start()
     {
+        PreencheDicionario();
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
         conductor.enabled = true;
         gameOverPanel.SetActive(false);
@@ -83,6 +106,12 @@ private void Awake()
             winPanel.SetActive(true);
             _liveImage.enabled = false;
             return;
+        }
+        if (weapons.Count == 0){
+            WeaponSelected.SetActive(false);
+        }
+        else{
+            WeaponSelected.SetActive(true);
         }
     }
 
@@ -108,6 +137,7 @@ private void Awake()
             player.SetActive(false);
             metronome.enabled = false;
             gameOverPanel.SetActive(true);
+            WeaponSelected.SetActive(false);
             _liveImage.enabled = false;
             Conductor conductorScript = conductor.GetComponent<Conductor>() as Conductor;
             conductorScript.musicSource.Stop();
@@ -115,6 +145,41 @@ private void Awake()
             return; // Adicionado para interromper a execução do método
         }
     }
+
+    public void SorteiaItem(){
+        System.Random rand = new System.Random();
+
+        List<string> weaponList = new List<string>(weaponDamage.Keys);
+        int randomIndex = rand.Next(weaponList.Count);
+        string randomWeapon = weaponList[randomIndex];
+        weapons.Add(randomWeapon);
+        SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
+        weaponUI.SetImage(randomWeapon);
+        PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
+        popUpControllerScript.ShowPopup(randomWeapon, weaponDamage);
+    }
+
+    public int selecionaMaiorDamage(){
+        int maiorDamage = 0;
+        string maiorDamageWeapon = "";
+        foreach (string weapon in weapons){
+            if (weaponDamage[weapon] > maiorDamage){
+                maiorDamage = weaponDamage[weapon];
+                maiorDamageWeapon = weapon;
+            }
+        }
+        return maiorDamage;
+    }
+
+    public int selecionaUltimaArma(){
+        if (weapons.Count == 0){
+            return 0;
+        } else {
+            string lastWeapon = weapons[weapons.Count - 1];
+            return weaponDamage[lastWeapon];
+        }
+    }
+
 
 
     private bool CanMove(Vector2 direction)
@@ -127,51 +192,49 @@ private void Awake()
 
         if (hit != null && (hit.gameObject.CompareTag("Enemy")))
         {
-            Debug.Log("ENTREI NO HIT DO CAN MOVE");
             BatAttack batScriptConfere = hit.gameObject.GetComponent<BatAttack>() as BatAttack;
             if (batScriptConfere != null)
             {
-                batScriptConfere.TakeDamageBat(1);
+                batScriptConfere.TakeDamageBat(selecionaUltimaArma());
                 return false;
             }
             
             SlimeAttack slimeScript = hit.gameObject.GetComponent<SlimeAttack>() as SlimeAttack;
             if (slimeScript != null){
-                slimeScript.TakeDamageSlime(1);
+                slimeScript.TakeDamageSlime(selecionaUltimaArma());
                 return false;
             }
             OogaBoongaAttack oogaScript = hit.gameObject.GetComponent<OogaBoongaAttack>() as OogaBoongaAttack;
             if (oogaScript != null){
-                oogaScript.TakeDamageOoga(1);
+                oogaScript.TakeDamageOoga(selecionaUltimaArma());
                 return false;
             }
 
             SkeletonAttack skeletonScript = hit.gameObject.GetComponent<SkeletonAttack>() as SkeletonAttack;
             if (skeletonScript != null){
-                skeletonScript.TakeDamageSkeleton(1);
+                skeletonScript.TakeDamageSkeleton(selecionaUltimaArma());
                 return false;
             }
 
             KnightAttack knightScript = hit.gameObject.GetComponent<KnightAttack>() as KnightAttack;
             if (knightScript != null){
-                knightScript.TakeDamageKnight(1);
+                knightScript.TakeDamageKnight(selecionaUltimaArma());
                 return false;
             }
 
             PopGirlAttack popGirlScript = hit.gameObject.GetComponent<PopGirlAttack>() as PopGirlAttack;
             if (popGirlScript != null)
             {
-                popGirlScript.TakeDamagePopGirl(1);
+                popGirlScript.TakeDamagePopGirl(selecionaUltimaArma());
                 return false;
             }
 
             BossAttack bossScript = hit.gameObject.GetComponent<BossAttack>() as BossAttack;
             if (bossScript != null)
             {
-                bossScript.TakeDamageBoss(1);
+                bossScript.TakeDamageBoss(selecionaUltimaArma());
                 if (bossScript.morreu)
                 {
-                    // O objeto do boss foi destruído
                     ganhou = true;
                 }
                 return false;
@@ -200,6 +263,55 @@ private void Awake()
         {
             hit.gameObject.SetActive(false);
             hasKey = true;
+            return true;
+        }
+
+        if (hit != null && (hit.gameObject.CompareTag("SimpleSword")))
+        {
+            hit.gameObject.SetActive(false);
+            weapons.Add("SimpleSword");
+            PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
+            popUpControllerScript.ShowPopup("SimpleSword", weaponDamage);
+            SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
+            weaponUI.SetImage("SimpleSword");
+            return true;
+        }
+
+        if (hit != null && (hit.gameObject.CompareTag("Knife")))
+        {
+            hit.gameObject.SetActive(false);
+            weapons.Add("Knife");
+            PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
+            popUpControllerScript.ShowPopup("Knife", weaponDamage);
+            SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
+            weaponUI.SetImage("Knife");
+            return true;
+        }
+
+        if (hit != null && (hit.gameObject.CompareTag("SimpleAxe")))
+        {
+            hit.gameObject.SetActive(false);
+            weapons.Add("SimpleAxe");
+            PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
+            popUpControllerScript.ShowPopup("SimpleAxe", weaponDamage);
+            SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
+            weaponUI.SetImage("SimpleAxe");
+            return true;
+        }
+
+        if (hit != null && (hit.gameObject.CompareTag("Chest")))
+        {
+            hit.gameObject.SetActive(false);
+            SorteiaItem();
+            return true;
+        }
+
+        if (hit != null && (hit.gameObject.CompareTag("Potion")))
+        {
+            hit.gameObject.SetActive(false);
+            if (vida < 5)
+                vida++;
+                _liveImage.sprite = _liveSprites[vida];
             return true;
         }
 

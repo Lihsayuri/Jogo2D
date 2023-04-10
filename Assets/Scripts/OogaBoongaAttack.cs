@@ -34,13 +34,13 @@ public class OogaBoongaAttack : MonoBehaviour
         Debug.Log("ENTREI NO TAKE DAMAGE OOGA");
         vida_ooga -= damage;
         Debug.Log("Vida ooga: " + vida_ooga);
-        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_ooga];
         if (vida_ooga <= 0) {
             Debug.Log("Entrei direto! Morreu");
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
             Destroy(oogaboonga);
             return;
         }
+        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_ooga];
     }
 
 

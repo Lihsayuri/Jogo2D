@@ -45,7 +45,6 @@ public class BossAttack : MonoBehaviour
         Debug.Log("ENTREI NO TAKE DAMAGE boss");
         vida_boss -= damage;
         Debug.Log("Vida boss: " + vida_boss);
-        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_boss];
         if (vida_boss <= 0) {
             Debug.Log("Morreu");
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
@@ -53,6 +52,7 @@ public class BossAttack : MonoBehaviour
             Destroy(boss);
             return;
         }
+        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_boss];
     }
 
     private bool CanMove(Vector2 direction)

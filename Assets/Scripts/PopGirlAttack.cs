@@ -43,13 +43,14 @@ public class PopGirlAttack : MonoBehaviour
         Debug.Log("ENTREI NO TAKE DAMAGE popGirl");
         vida_popGirl -= damage;
         Debug.Log("Vida popGirl: " + vida_popGirl);
-        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_popGirl];
         if (vida_popGirl <= 0) {
             Debug.Log("Morreu");
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
             Destroy(popGirl);
             return;
         }
+
+        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[vida_popGirl];
     }
 
     private bool CanMove(Vector2 direction)
