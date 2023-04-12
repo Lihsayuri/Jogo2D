@@ -30,7 +30,6 @@ public class BatAttack : MonoBehaviour
 
     public void TakeDamageBat(int damage)
     {
-        Debug.Log("Bat took damage");
         if (damage == 0){
             return;
         }

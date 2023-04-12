@@ -47,7 +47,8 @@ public class PlayerController : MonoBehaviour
 
     private bool ganhou = false;
 
-    private List<string> weapons = new List<string> ();
+    // private List<string> weapons = new List<string> ();
+    
 
     private Dictionary<string, int> weaponDamage = new Dictionary<string, int> ();
 
@@ -91,11 +92,26 @@ private void Awake()
     void Start()
     {
         PreencheDicionario();
+        
+        if (PlayerManager.Instance != null && PlayerManager.Instance.weapons.Count != 0)
+        {
+            selecionaUltimaArma();
+            SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
+            weaponUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
+            Debug.Log("Arma selecionada: " + PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
+        }
+
+        Debug.Log("AQUIII A QRD: " + PlayerManager.Instance.weapons.Count);
+        if (PlayerManager.Instance.weapons.Count == 0){
+            WeaponSelected.SetActive(false);
+        }
+
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
         conductor.enabled = true;
         gameOverPanel.SetActive(false);
         metronome.enabled = true;
         winPanel.SetActive(false);
+        
     }
 
     void Update(){
@@ -106,12 +122,6 @@ private void Awake()
             winPanel.SetActive(true);
             _liveImage.enabled = false;
             return;
-        }
-        if (weapons.Count == 0){
-            WeaponSelected.SetActive(false);
-        }
-        else{
-            WeaponSelected.SetActive(true);
         }
     }
 
@@ -152,30 +162,21 @@ private void Awake()
         List<string> weaponList = new List<string>(weaponDamage.Keys);
         int randomIndex = rand.Next(weaponList.Count);
         string randomWeapon = weaponList[randomIndex];
-        weapons.Add(randomWeapon);
+        PlayerManager.Instance.weapons.Add(randomWeapon);
         SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
         weaponUI.SetImage(randomWeapon);
+        if (!WeaponSelected.activeSelf)
+            WeaponSelected.SetActive(true);
         PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
         popUpControllerScript.ShowPopup(randomWeapon, weaponDamage);
     }
 
-    public int selecionaMaiorDamage(){
-        int maiorDamage = 0;
-        string maiorDamageWeapon = "";
-        foreach (string weapon in weapons){
-            if (weaponDamage[weapon] > maiorDamage){
-                maiorDamage = weaponDamage[weapon];
-                maiorDamageWeapon = weapon;
-            }
-        }
-        return maiorDamage;
-    }
 
     public int selecionaUltimaArma(){
-        if (weapons.Count == 0){
+        if (PlayerManager.Instance.weapons.Count == 0){
             return 0;
         } else {
-            string lastWeapon = weapons[weapons.Count - 1];
+            string lastWeapon = PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count - 1];
             return weaponDamage[lastWeapon];
         }
     }
@@ -269,33 +270,41 @@ private void Awake()
         if (hit != null && (hit.gameObject.CompareTag("SimpleSword")))
         {
             hit.gameObject.SetActive(false);
-            weapons.Add("SimpleSword");
+            PlayerManager.Instance.weapons.Add("SimpleSword");
             PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
             popUpControllerScript.ShowPopup("SimpleSword", weaponDamage);
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("SimpleSword");
+            if (!WeaponSelected.activeSelf)
+                WeaponSelected.SetActive(true);
             return true;
         }
 
         if (hit != null && (hit.gameObject.CompareTag("Knife")))
         {
             hit.gameObject.SetActive(false);
-            weapons.Add("Knife");
+            PlayerManager.Instance.weapons.Add("Knife");
             PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
             popUpControllerScript.ShowPopup("Knife", weaponDamage);
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("Knife");
+            if (!WeaponSelected.activeSelf)
+                WeaponSelected.SetActive(true);
+            
             return true;
         }
 
         if (hit != null && (hit.gameObject.CompareTag("SimpleAxe")))
         {
             hit.gameObject.SetActive(false);
-            weapons.Add("SimpleAxe");
+            PlayerManager.Instance.weapons.Add("SimpleAxe");
             PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
             popUpControllerScript.ShowPopup("SimpleAxe", weaponDamage);
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("SimpleAxe");
+            // confere se o setactive do weaponselected é false e se for muda para true
+            if (!WeaponSelected.activeSelf)
+                WeaponSelected.SetActive(true);
             return true;
         }
 
