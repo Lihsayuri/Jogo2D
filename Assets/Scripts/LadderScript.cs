@@ -8,6 +8,8 @@ public class LadderScript : MonoBehaviour
     [SerializeField]
     private int nextLevel = 2;
 
+
+
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Enter");

@@ -95,20 +95,16 @@ private void Awake()
         
         if (PlayerManager.Instance != null && PlayerManager.Instance.weapons.Count != 0)
         {
-            selecionaUltimaArma();
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
-            weaponUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
             Debug.Log("Arma selecionada: " + PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
+            weaponUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
         }
         else
         {
-                    // if (PlayerManager.Instance.weapons.Count == 0){
             WeaponSelected.SetActive(false);
-        // }
             Debug.Log("Nenhuma arma selecionada");
         }
 
-        // Debug.Log("AQUIII A QRD: " + PlayerManager.Instance.weapons.Count);
 
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
         conductor.enabled = true;
@@ -124,8 +120,20 @@ private void Awake()
             Conductor conductorScript = conductor.GetComponent<Conductor>() as Conductor;
             conductorScript.musicSource.Stop();
             winPanel.SetActive(true);
+            WeaponSelected.SetActive(false);
             _liveImage.enabled = false;
             return;
+        }
+
+    }
+
+    void LateUpdate()
+    {
+        if (PlayerManager.Instance != null && PlayerManager.Instance.weapons.Count != 0)
+        {
+            SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
+            // Debug.Log("Arma selecionada: " + PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
+            weaponUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
         }
     }
 
@@ -160,6 +168,14 @@ private void Awake()
         }
     }
 
+    public void confereWeaponSelected(){
+        if (PlayerManager.Instance.weapons.Count == 0){
+            WeaponSelected.SetActive(false);
+        } else {
+            WeaponSelected.SetActive(true);
+        }
+    }
+
     public void SorteiaItem(){
         System.Random rand = new System.Random();
 
@@ -169,8 +185,7 @@ private void Awake()
         PlayerManager.Instance.weapons.Add(randomWeapon);
         SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
         weaponUI.SetImage(randomWeapon);
-        if (!WeaponSelected.activeSelf)
-            WeaponSelected.SetActive(true);
+        confereWeaponSelected();
         PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
         popUpControllerScript.ShowPopup(randomWeapon, weaponDamage);
     }
@@ -279,8 +294,7 @@ private void Awake()
             popUpControllerScript.ShowPopup("SimpleSword", weaponDamage);
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("SimpleSword");
-            if (!WeaponSelected.activeSelf)
-                WeaponSelected.SetActive(true);
+            confereWeaponSelected();
             return true;
         }
 
@@ -290,11 +304,11 @@ private void Awake()
             PlayerManager.Instance.weapons.Add("Knife");
             PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
             popUpControllerScript.ShowPopup("Knife", weaponDamage);
+            confereWeaponSelected();
+            Debug.Log("Knife AQUIIII");
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("Knife");
-            if (!WeaponSelected.activeSelf)
-                WeaponSelected.SetActive(true);
-            
+            Debug.Log("SETTEIII");            
             return true;
         }
 
@@ -307,8 +321,7 @@ private void Awake()
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("SimpleAxe");
             // confere se o setactive do weaponselected é false e se for muda para true
-            if (!WeaponSelected.activeSelf)
-                WeaponSelected.SetActive(true);
+            confereWeaponSelected();
             return true;
         }
 
