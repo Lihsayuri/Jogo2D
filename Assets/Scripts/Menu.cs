@@ -11,6 +11,10 @@ public class Menu : MonoBehaviour
 
     public void LoadMenu()
     {
+        if (PlayerManager.Instance != null){
+            PlayerManager.Instance.weapons.Clear();
+
+        }
         SceneManager.LoadScene(0);
     }
     public void LoadGame()
@@ -26,6 +30,10 @@ public class Menu : MonoBehaviour
         if (WinPanel.instance != null)
         {
             WinPanel.instance.GetComponent<AudioSource>().Stop();
+        }
+        if (PlayerManager.Instance != null){
+            PlayerManager.Instance.weapons.Clear();
+
         }
         SceneManager.LoadScene(1);
     }

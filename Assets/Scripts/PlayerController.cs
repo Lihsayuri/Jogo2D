@@ -100,11 +100,15 @@ private void Awake()
             weaponUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
             Debug.Log("Arma selecionada: " + PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
         }
-
-        Debug.Log("AQUIII A QRD: " + PlayerManager.Instance.weapons.Count);
-        if (PlayerManager.Instance.weapons.Count == 0){
+        else
+        {
+                    // if (PlayerManager.Instance.weapons.Count == 0){
             WeaponSelected.SetActive(false);
+        // }
+            Debug.Log("Nenhuma arma selecionada");
         }
+
+        // Debug.Log("AQUIII A QRD: " + PlayerManager.Instance.weapons.Count);
 
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
         conductor.enabled = true;
