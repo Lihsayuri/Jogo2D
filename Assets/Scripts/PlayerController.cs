@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -46,6 +47,8 @@ public class PlayerController : MonoBehaviour
     private Image metronome;
 
     private bool ganhou = false;
+
+    private int level = 0;
 
     // private List<string> weapons = new List<string> ();
     
@@ -135,6 +138,33 @@ private void Awake()
             // Debug.Log("Arma selecionada: " + PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
             weaponUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
         }
+        if (conductor.GetComponent<Conductor>().musicSource.isPlaying == false){
+            if (level == 1){
+                level+=1;
+                SceneManager.LoadScene(level);
+                Vector3 spawnPosition = new Vector3(33, 0f, 0f);
+                player.transform.position = spawnPosition;
+            }
+            if (level == 2){
+                level+=1;
+                SceneManager.LoadScene(level);
+                Vector3 spawnPosition = new Vector3(0.5f, 5.5f, 0f);
+                player.transform.position = spawnPosition;
+            }
+            if (level == 3){
+                    _liveImage.sprite = _liveSprites[0];
+                    player.SetActive(false);
+                    metronome.enabled = false;
+                    gameOverPanel.SetActive(true);
+                    WeaponSelected.SetActive(false);
+                    _liveImage.enabled = false;
+                    Conductor conductorScript = conductor.GetComponent<Conductor>() as Conductor;
+                    conductorScript.musicSource.Stop();
+                    conductor.enabled = false;
+                    return;
+            }
+        } 
+
     }
 
     private void Move(Vector2 direction)

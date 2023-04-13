@@ -59,6 +59,12 @@ public class Conductor : MonoBehaviour
         musicSource.Play();
     }
 
+    private void OnAudioClip()
+    {
+        // Coloque aqui o código para parar a música
+        musicSource.Stop();
+    }
+
     public bool BeatChanged(){
         if (lastPositionInBeats == songPositionInBeats)
             return false;
