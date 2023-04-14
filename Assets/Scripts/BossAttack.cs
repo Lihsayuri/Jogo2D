@@ -42,11 +42,8 @@ public class BossAttack : MonoBehaviour
 
     public void TakeDamageBoss(int damage)
     {
-        Debug.Log("ENTREI NO TAKE DAMAGE boss");
         vida_boss -= damage;
-        Debug.Log("Vida boss: " + vida_boss);
         if (vida_boss <= 0) {
-            Debug.Log("Morreu");
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
             morreu = true;
             Destroy(boss);
@@ -147,14 +144,11 @@ public class BossAttack : MonoBehaviour
     {
         lastPositionInBeats = conductor.songPositionInBeats;
         InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-        // Debug.Log(boss.transform.position);
     }
 
     void Update()
     {
-        //Debug.Log(playerPosition);
-        // InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-        // if (conductor.BeatChanged())
+
         if (BeatChanged() && (conductor.songPositionInBeats % beatsPerMove == 0))
         {
             MoveTowardsPlayer();

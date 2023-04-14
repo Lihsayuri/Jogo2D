@@ -40,11 +40,8 @@ public class PopGirlAttack : MonoBehaviour
 
     public void TakeDamagePopGirl(int damage)
     {
-        Debug.Log("ENTREI NO TAKE DAMAGE popGirl");
         vida_popGirl -= damage;
-        Debug.Log("Vida popGirl: " + vida_popGirl);
         if (vida_popGirl <= 0) {
-            Debug.Log("Morreu");
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
             Destroy(popGirl);
             return;
@@ -145,14 +142,10 @@ public class PopGirlAttack : MonoBehaviour
     {
         lastPositionInBeats = conductor.songPositionInBeats;
         InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-        // Debug.Log(popGirl.transform.position);
     }
 
     void Update()
     {
-        //Debug.Log(playerPosition);
-        // InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-        // if (conductor.BeatChanged())
         if (BeatChanged() && (conductor.songPositionInBeats % beatsPerMove == 0))
         {
             MoveTowardsPlayer();

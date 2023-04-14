@@ -7,6 +7,10 @@ public class PlayerManager : MonoBehaviour
 
     public static PlayerManager Instance;
 
+    public int level = 1;
+
+    public bool trocaCena = false;
+
     public List<string> weapons = new List<string> ();
 
     private void Awake()

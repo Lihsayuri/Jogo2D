@@ -40,11 +40,8 @@ public class KnightAttack : MonoBehaviour
 
     public void TakeDamageKnight(int damage)
     {
-        Debug.Log("ENTREI NO TAKE DAMAGE knight");
         vida_knight -= damage;
-        Debug.Log("Vida knight: " + vida_knight);
         if (vida_knight <= 0) {
-            Debug.Log("Morreu");
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
             Destroy(knight);
             return;

@@ -52,7 +52,6 @@ public class SetWeaponImage : MonoBehaviour
                 break;
             // caso você tenha outras armas, basta adicionar mais casos aqui
             default:
-                Debug.LogError("Arma desconhecida: " + weaponName);
                 break;
         }
     }

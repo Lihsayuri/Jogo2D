@@ -48,8 +48,6 @@ public class PlayerController : MonoBehaviour
 
     private bool ganhou = false;
 
-    private int level = 0;
-
     // private List<string> weapons = new List<string> ();
     
 
@@ -95,22 +93,31 @@ private void Awake()
     void Start()
     {
         PreencheDicionario();
+        conductor.enabled = true;
+
+        if (PlayerManager.Instance.trocaCena == true && PlayerManager.Instance.level == 2){
+                Vector3 spawnPosition = new Vector3(33.5f, 0.5f, 0f);
+                player.transform.position = spawnPosition;
+                PlayerManager.Instance.trocaCena = false;
+        }
+        if (PlayerManager.Instance.trocaCena == true && PlayerManager.Instance.level == 3){
+                Vector3 spawnPosition = new Vector3(0.5f, 5.5f, 0f);
+                player.transform.position = spawnPosition;
+                PlayerManager.Instance.trocaCena = false;
+        }
         
         if (PlayerManager.Instance != null && PlayerManager.Instance.weapons.Count != 0)
         {
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
-            Debug.Log("Arma selecionada: " + PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
             weaponUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
         }
         else
         {
             WeaponSelected.SetActive(false);
-            Debug.Log("Nenhuma arma selecionada");
         }
 
 
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
-        conductor.enabled = true;
         gameOverPanel.SetActive(false);
         metronome.enabled = true;
         winPanel.SetActive(false);
@@ -122,6 +129,7 @@ private void Awake()
             metronome.enabled = false;
             Conductor conductorScript = conductor.GetComponent<Conductor>() as Conductor;
             conductorScript.musicSource.Stop();
+            gameOverPanel.SetActive(false);
             winPanel.SetActive(true);
             WeaponSelected.SetActive(false);
             _liveImage.enabled = false;
@@ -135,33 +143,20 @@ private void Awake()
         if (PlayerManager.Instance != null && PlayerManager.Instance.weapons.Count != 0)
         {
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
-            // Debug.Log("Arma selecionada: " + PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
             weaponUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
         }
         if (conductor.GetComponent<Conductor>().musicSource.isPlaying == false){
-            if (level == 1){
-                level+=1;
-                SceneManager.LoadScene(level);
-                Vector3 spawnPosition = new Vector3(33, 0f, 0f);
-                player.transform.position = spawnPosition;
+            if (PlayerManager.Instance.level == 1){
+                PlayerManager.Instance.level+=1;
+                SceneManager.LoadScene(PlayerManager.Instance.level);
+                PlayerManager.Instance.trocaCena = true;
+                return;
             }
-            if (level == 2){
-                level+=1;
-                SceneManager.LoadScene(level);
-                Vector3 spawnPosition = new Vector3(0.5f, 5.5f, 0f);
-                player.transform.position = spawnPosition;
-            }
-            if (level == 3){
-                    _liveImage.sprite = _liveSprites[0];
-                    player.SetActive(false);
-                    metronome.enabled = false;
-                    gameOverPanel.SetActive(true);
-                    WeaponSelected.SetActive(false);
-                    _liveImage.enabled = false;
-                    Conductor conductorScript = conductor.GetComponent<Conductor>() as Conductor;
-                    conductorScript.musicSource.Stop();
-                    conductor.enabled = false;
-                    return;
+            if (PlayerManager.Instance.level == 2){
+                PlayerManager.Instance.level+=1;
+                SceneManager.LoadScene(PlayerManager.Instance.level);
+                PlayerManager.Instance.trocaCena = true;
+                return;
             }
         } 
 
@@ -335,10 +330,8 @@ private void Awake()
             PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
             popUpControllerScript.ShowPopup("Knife", weaponDamage);
             confereWeaponSelected();
-            Debug.Log("Knife AQUIIII");
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("Knife");
-            Debug.Log("SETTEIII");            
             return true;
         }
 

@@ -31,11 +31,8 @@ public class OogaBoongaAttack : MonoBehaviour
 
     public void TakeDamageOoga(int damage)
     {
-        Debug.Log("ENTREI NO TAKE DAMAGE OOGA");
         vida_ooga -= damage;
-        Debug.Log("Vida ooga: " + vida_ooga);
         if (vida_ooga <= 0) {
-            Debug.Log("Entrei direto! Morreu");
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
             Destroy(oogaboonga);
             return;
@@ -112,9 +109,6 @@ public class OogaBoongaAttack : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(playerPosition);
-        // InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
-        // if (conductor.BeatChanged())
         if (BeatChanged() && (conductor.songPositionInBeats % beatsPerMove == 0))
         {
             if (movedRight)
