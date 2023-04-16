@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1900804953554534396}
   - component: {fileID: 1900804953554534399}
-  - component: {fileID: 1900804953554534398}
-  - component: {fileID: 5697822450271585056}
   - component: {fileID: 1900804953554534273}
   - component: {fileID: 552028963274113317}
   - component: {fileID: 1796788320343614184}
+  - component: {fileID: 1900804953554534398}
+  - component: {fileID: 2617772339705810150}
   m_Layer: 0
   m_Name: PopGirl
   m_TagString: Enemy
@@ -90,47 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1900804953554534398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900804953554534272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9bd9f7e9c52a448a65451df7ed7676, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1900804953554534273}
-  conductor: {fileID: 0}
-  multiplier: 3
---- !u!114 &5697822450271585056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900804953554534272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3e0733a150659140824a8c419f7fdc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popGirl: {fileID: 1900804953554534272}
-  player: {fileID: 0}
-  conductor: {fileID: 0}
-  groundTilemap: {fileID: 0}
-  wallTilemap: {fileID: 0}
-  dmg: 3
-  beatsPerMove: 2
-  vida_popGirl: 3
-  _liveSprites:
-  - {fileID: 21300000, guid: aa0b5bbf07c8f514e86da78af5f62418, type: 3}
-  - {fileID: 21300000, guid: 20c00c5dd33cdee46bcd5118050db853, type: 3}
-  - {fileID: 21300000, guid: e8055b9ec42876e4fbcecc6edb753c2d, type: 3}
-  - {fileID: 21300000, guid: e94d60bd3eec1534aa7af4ca78fbe229, type: 3}
-  _liveImage: {fileID: 8034246086802690576}
 --- !u!95 &1900804953554534273
 Animator:
   serializedVersion: 5
@@ -185,7 +144,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -198,6 +157,47 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
+--- !u!114 &1900804953554534398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900804953554534272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9bd9f7e9c52a448a65451df7ed7676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1900804953554534273}
+  conductor: {fileID: 0}
+  multiplier: 3
+--- !u!114 &2617772339705810150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900804953554534272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88e3c459b8fa804f8b0adc7015755f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1900804953554534272}
+  conductor: {fileID: 0}
+  dmg: 3
+  health: 3
+  _liveSprites:
+  - {fileID: 21300000, guid: aa0b5bbf07c8f514e86da78af5f62418, type: 3}
+  - {fileID: 21300000, guid: 20c00c5dd33cdee46bcd5118050db853, type: 3}
+  - {fileID: 21300000, guid: e8055b9ec42876e4fbcecc6edb753c2d, type: 3}
+  - {fileID: 21300000, guid: e94d60bd3eec1534aa7af4ca78fbe229, type: 3}
+  _liveImage: {fileID: 8034246086802690576}
+  groundTilemap: {fileID: 0}
+  wallTilemap: {fileID: 0}
+  beatsPerMove: 4
+  player: {fileID: 0}
 --- !u!1 &8034246086802690576
 GameObject:
   m_ObjectHideFlags: 0

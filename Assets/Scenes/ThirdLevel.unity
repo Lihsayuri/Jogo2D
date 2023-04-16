@@ -904,6 +904,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 762120201}
     m_Modifications:
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 174656594}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1288,6 +1304,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458305861}
     m_Modifications:
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 174656594}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 1905179883231502594, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
       propertyPath: m_Name
       value: Knight
@@ -1502,6 +1534,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 762120201}
     m_Modifications:
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 174656594}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1752,11 +1800,11 @@ GameObject:
   m_Component:
   - component: {fileID: 712108995}
   - component: {fileID: 712108994}
-  - component: {fileID: 712108997}
-  - component: {fileID: 712108998}
   - component: {fileID: 712108993}
   - component: {fileID: 712108992}
   - component: {fileID: 712108996}
+  - component: {fileID: 712108997}
+  - component: {fileID: 712108999}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -1914,7 +1962,7 @@ MonoBehaviour:
   animator: {fileID: 712108996}
   conductor: {fileID: 874627637}
   multiplier: 10
---- !u!114 &712108998
+--- !u!114 &712108999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1923,17 +1971,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 712108991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 380f28061c09ba848b63ce13c17c208f, type: 3}
+  m_Script: {fileID: 11500000, guid: f88e3c459b8fa804f8b0adc7015755f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 712108991}
-  player: {fileID: 174656594}
+  enemy: {fileID: 712108991}
   conductor: {fileID: 874627639}
-  groundTilemap: {fileID: 848982096}
-  wallTilemap: {fileID: 1985500176}
-  dmg: 3
-  beatsPerMove: 2
-  vida_boss: 1
+  dmg: 0
+  health: 1
   _liveSprites:
   - {fileID: 21300000, guid: 1ae1f0242fab4704fbee87f2622bf61c, type: 3}
   - {fileID: 21300000, guid: 41ec00a1f782cc3458cfbe034863c703, type: 3}
@@ -1942,7 +1986,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9e4ea38ce5705f542853b12f8a1eeca9, type: 3}
   - {fileID: 21300000, guid: 981c94cd87aab1d4d8572f02f7280f72, type: 3}
   _liveImage: {fileID: 1819794731}
-  morreu: 0
+  groundTilemap: {fileID: 848982096}
+  wallTilemap: {fileID: 1985500176}
+  beatsPerMove: 2
+  player: {fileID: 174656594}
 --- !u!1001 &730734491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1950,6 +1997,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458305861}
     m_Modifications:
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 174656594}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 1905179883231502594, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
       propertyPath: m_Name
       value: Knight (1)
@@ -2084,6 +2147,22 @@ PrefabInstance:
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627637}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 174656594}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 5697822450271585056, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
       propertyPath: player
       value: 
@@ -7323,6 +7402,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 762120201}
     m_Modifications:
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 174656594}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -7457,6 +7552,22 @@ PrefabInstance:
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627637}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 174656594}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 5697822450271585056, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
       propertyPath: player
       value: 
@@ -8681,6 +8792,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 762120201}
     m_Modifications:
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 174656594}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -237,53 +237,12 @@ private void Awake()
 
         if (hit != null && (hit.gameObject.CompareTag("Enemy")))
         {
-            BatAttack batScriptConfere = hit.gameObject.GetComponent<BatAttack>() as BatAttack;
-            if (batScriptConfere != null)
+            EnemyBaseClass enemyScript = hit.gameObject.GetComponent<EnemyBaseClass>() as EnemyBaseClass;
+            if (enemyScript != null)
             {
-                batScriptConfere.TakeDamageBat(selecionaUltimaArma());
+                enemyScript.TakeDamage(selecionaUltimaArma());
                 return false;
             }
-            
-            SlimeAttack slimeScript = hit.gameObject.GetComponent<SlimeAttack>() as SlimeAttack;
-            if (slimeScript != null){
-                slimeScript.TakeDamageSlime(selecionaUltimaArma());
-                return false;
-            }
-            OogaBoongaAttack oogaScript = hit.gameObject.GetComponent<OogaBoongaAttack>() as OogaBoongaAttack;
-            if (oogaScript != null){
-                oogaScript.TakeDamageOoga(selecionaUltimaArma());
-                return false;
-            }
-
-            SkeletonAttack skeletonScript = hit.gameObject.GetComponent<SkeletonAttack>() as SkeletonAttack;
-            if (skeletonScript != null){
-                skeletonScript.TakeDamageSkeleton(selecionaUltimaArma());
-                return false;
-            }
-
-            KnightAttack knightScript = hit.gameObject.GetComponent<KnightAttack>() as KnightAttack;
-            if (knightScript != null){
-                knightScript.TakeDamageKnight(selecionaUltimaArma());
-                return false;
-            }
-
-            PopGirlAttack popGirlScript = hit.gameObject.GetComponent<PopGirlAttack>() as PopGirlAttack;
-            if (popGirlScript != null)
-            {
-                popGirlScript.TakeDamagePopGirl(selecionaUltimaArma());
-                return false;
-            }
-
-            BossAttack bossScript = hit.gameObject.GetComponent<BossAttack>() as BossAttack;
-            if (bossScript != null)
-            {
-                bossScript.TakeDamageBoss(selecionaUltimaArma());
-                if (bossScript.morreu)
-                {
-                    ganhou = true;
-                }
-                return false;
-            } 
 
             return false;
         }

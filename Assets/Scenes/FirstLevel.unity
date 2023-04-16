@@ -130,6 +130,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1333262758}
     m_Modifications:
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -216,6 +232,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 97455155}
     m_Modifications:
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 1905179883231502594, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
       propertyPath: m_Name
       value: Knight_2
@@ -319,6 +351,14 @@ PrefabInstance:
       propertyPath: oogaboonga
       value: 
       objectReference: {fileID: 79348136}
+    - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 3518073523495296116, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -404,7 +444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &97455155
 Transform:
   m_ObjectHideFlags: 0
@@ -413,7 +453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97455154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -495,6 +535,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 874627639}
     - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
       propertyPath: _liveSprites.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -542,6 +590,14 @@ PrefabInstance:
       propertyPath: oogaboonga
       value: 
       objectReference: {fileID: 104411910}
+    - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 3518073523495296116, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -989,6 +1045,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1333262758}
     m_Modifications:
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1144,6 +1216,14 @@ PrefabInstance:
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627639}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
       propertyPath: _liveSprites.Array.size
       value: 2
@@ -2557,6 +2637,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 874627639}
     - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
       propertyPath: _liveSprites.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2599,6 +2687,14 @@ PrefabInstance:
       propertyPath: oogaboonga
       value: 
       objectReference: {fileID: 694337023}
+    - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 3518073523495296116, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2718,6 +2814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenSlime_3
       objectReference: {fileID: 0}
+    - target: {fileID: 8147766235968923954, guid: d87f9d37d35ae714385e5bda2ef26da4, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d87f9d37d35ae714385e5bda2ef26da4, type: 3}
 --- !u!4 &772061199 stripped
@@ -2983,6 +3083,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1333262758}
     m_Modifications:
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3091,6 +3207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e08d05a943f30468c1026a68f33428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
+  trocaCena: 0
   weapons: []
 --- !u!4 &815599164
 Transform:
@@ -3227,6 +3345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenSlime_4
       objectReference: {fileID: 0}
+    - target: {fileID: 8147766235968923954, guid: d87f9d37d35ae714385e5bda2ef26da4, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d87f9d37d35ae714385e5bda2ef26da4, type: 3}
 --- !u!4 &845121562 stripped
@@ -13123,7 +13245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1333262758
 Transform:
   m_ObjectHideFlags: 0
@@ -13355,6 +13477,14 @@ PrefabInstance:
       propertyPath: oogaboonga
       value: 
       objectReference: {fileID: 1418854296}
+    - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 3518073523495296116, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -13805,6 +13935,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1333262758}
     m_Modifications:
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -14152,7 +14298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1667742332
 Transform:
   m_ObjectHideFlags: 0
@@ -14161,7 +14307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667742331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14244,7 +14390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4149600357921418928, guid: d87f9d37d35ae714385e5bda2ef26da4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4149600357921418928, guid: d87f9d37d35ae714385e5bda2ef26da4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14294,6 +14440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenSlime_2
       objectReference: {fileID: 0}
+    - target: {fileID: 8147766235968923954, guid: d87f9d37d35ae714385e5bda2ef26da4, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d87f9d37d35ae714385e5bda2ef26da4, type: 3}
 --- !u!4 &1712091931 stripped
@@ -14561,6 +14711,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 97455155}
     m_Modifications:
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 1905179883231502594, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
       propertyPath: m_Name
       value: Knight_3
@@ -14764,6 +14930,14 @@ PrefabInstance:
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627639}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 2498787684076183958, guid: 9716da6a5fd996640869311af61ad625, type: 3}
       propertyPath: _liveSprites.Array.size
       value: 2
@@ -20433,6 +20607,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenSlime_6
       objectReference: {fileID: 0}
+    - target: {fileID: 8147766235968923954, guid: d87f9d37d35ae714385e5bda2ef26da4, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d87f9d37d35ae714385e5bda2ef26da4, type: 3}
 --- !u!4 &2058768075 stripped
@@ -20499,6 +20677,22 @@ PrefabInstance:
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627637}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 5697822450271585056, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
       propertyPath: player
       value: 
@@ -20921,6 +21115,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenSlime_5
       objectReference: {fileID: 0}
+    - target: {fileID: 8147766235968923954, guid: d87f9d37d35ae714385e5bda2ef26da4, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d87f9d37d35ae714385e5bda2ef26da4, type: 3}
 --- !u!4 &2114523995 stripped
@@ -22080,7 +22278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 801679000917119709, guid: 9716da6a5fd996640869311af61ad625, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 801679000917119709, guid: 9716da6a5fd996640869311af61ad625, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22276,6 +22474,22 @@ PrefabInstance:
       propertyPath: conductor
       value: 
       objectReference: {fileID: 874627637}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2617772339705810150, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 5697822450271585056, guid: 7789bc43fd5725c40bf5b2c1596de7d6, type: 3}
       propertyPath: player
       value: 
@@ -22317,6 +22531,14 @@ PrefabInstance:
       propertyPath: oogaboonga
       value: 
       objectReference: {fileID: 1246504772}
+    - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2346474412718964453, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 3518073523495296116, guid: b50b631dc6b7fd14a89650150b5f4ac0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -22439,13 +22661,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1333262758}
     m_Modifications:
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 2753095979677513807, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 8229489827461122720, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
-      propertyPath: m_Size.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8229489827461122720, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
-      propertyPath: m_Size.y
-      value: 0.8
+      propertyPath: m_SpriteTilingProperty.drawMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8229489827461122723, guid: b315f456f6c742142b6dadcb13998b3c, type: 3}
       propertyPath: m_RootOrder
@@ -22532,6 +22766,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 97455155}
     m_Modifications:
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1989782242}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: conductor
+      value: 
+      objectReference: {fileID: 874627639}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: wallTilemap
+      value: 
+      objectReference: {fileID: 1985500176}
+    - target: {fileID: 628158923273645110, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
+      propertyPath: groundTilemap
+      value: 
+      objectReference: {fileID: 848982096}
     - target: {fileID: 1905179883231502594, guid: 605dfcbb4ef0c0c49b32a94319c848d2, type: 3}
       propertyPath: m_Name
       value: Knight_1

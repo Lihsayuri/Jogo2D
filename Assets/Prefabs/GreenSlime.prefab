@@ -97,8 +97,8 @@ GameObject:
   - component: {fileID: 4149600357921418942}
   - component: {fileID: 4149600357921418943}
   - component: {fileID: 4149600357921418931}
-  - component: {fileID: 5505865012182767248}
   - component: {fileID: 4149600357921418940}
+  - component: {fileID: 8147766235968923954}
   m_Layer: 7
   m_Name: GreenSlime
   m_TagString: Enemy
@@ -236,23 +236,6 @@ MonoBehaviour:
   animator: {fileID: 4149600357921418940}
   conductor: {fileID: 0}
   multiplier: 25
---- !u!114 &5505865012182767248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4149600357921418941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01a61ffc2bbb7747b58f475810b3ee3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slime: {fileID: 4149600357921418941}
-  _liveSprites:
-  - {fileID: 21300000, guid: b1ea61b5f310bd244907736964a5a25d, type: 3}
-  - {fileID: 21300000, guid: 2eb9917a49d0d9748ba3929074a81aca, type: 3}
-  _liveImage: {fileID: 358854776781740199}
 --- !u!95 &4149600357921418940
 Animator:
   serializedVersion: 5
@@ -273,3 +256,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &8147766235968923954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149600357921418941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7362e1496ccddb9458d269197f1fda50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 4149600357921418941}
+  conductor: {fileID: 0}
+  dmg: 1
+  health: 1
+  _liveSprites:
+  - {fileID: 21300000, guid: b1ea61b5f310bd244907736964a5a25d, type: 3}
+  - {fileID: 21300000, guid: 2eb9917a49d0d9748ba3929074a81aca, type: 3}
+  _liveImage: {fileID: 358854776781740199}
