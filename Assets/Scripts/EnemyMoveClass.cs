@@ -23,7 +23,7 @@ public class EnemyMoveClass : EnemyBaseClass
         // Verifica se h� algum objeto com BoxCollider2D na pr�xima posi��o
         Collider2D hit = Physics2D.OverlapBox(newPosition, boxSize, 0f);
 
-        if (hit != null && (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Boss") | hit.gameObject.CompareTag("Player") || hit.gameObject.CompareTag("Door")))
+        if (hit != null && (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Boss") || hit.gameObject.CompareTag("Player") || hit.gameObject.CompareTag("Door")))
         {
             if (hit.gameObject.CompareTag("Player"))
             {
