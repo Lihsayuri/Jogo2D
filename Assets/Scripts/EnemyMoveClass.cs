@@ -20,10 +20,10 @@ public class EnemyMoveClass : EnemyBaseClass
         Vector3 newPosition = enemy.transform.position + (Vector3)direction;
         Vector2 boxSize = enemy.GetComponent<BoxCollider2D>().size;
 
-        // Verifica se há algum objeto com BoxCollider2D na próxima posição
+        // Verifica se hï¿½ algum objeto com BoxCollider2D na prï¿½xima posiï¿½ï¿½o
         Collider2D hit = Physics2D.OverlapBox(newPosition, boxSize, 0f);
 
-        if (hit != null && (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Player") || hit.gameObject.CompareTag("Door")))
+        if (hit != null && (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Boss") | hit.gameObject.CompareTag("Player") || hit.gameObject.CompareTag("Door")))
         {
             if (hit.gameObject.CompareTag("Player"))
             {
@@ -42,10 +42,10 @@ public class EnemyMoveClass : EnemyBaseClass
 
     protected void move(GameObject enemy, Vector3 direction)
     {
-        // Pega a posição atual do enemy
+        // Pega a posiï¿½ï¿½o atual do enemy
         Vector3 currentPosition = enemy.transform.position;
 
-        // Calcula a próxima posição do enemy para a direita
+        // Calcula a prï¿½xima posiï¿½ï¿½o do enemy para a direita
         Vector3 nextPosition = currentPosition + direction;
 
         // Verifica se pode se mover para a direita sem bater em uma parede

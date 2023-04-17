@@ -25,6 +25,8 @@ public class EnemyBaseClass : MonoBehaviour
     [SerializeField]
     private GameObject _liveImage;
 
+    public bool ganhou = false;
+
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -32,6 +34,9 @@ public class EnemyBaseClass : MonoBehaviour
         {
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
             Destroy(enemy);
+            if (gameObject.tag == "Boss"){
+                ganhou = true;
+            }
             return;
         }
         _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[health];

@@ -41,12 +41,13 @@ public class PlayerController : MonoBehaviour
     private GameObject gameOverPanel;
 
     [SerializeField]
+    private GameObject bossObject;
+
+    [SerializeField]
     private GameObject winPanel;
 
     [SerializeField]
     private Image metronome;
-
-    private bool ganhou = false;
 
     // private List<string> weapons = new List<string> ();
     
@@ -125,18 +126,25 @@ private void Awake()
     }
 
     void Update(){
-        if (ganhou){
-            metronome.enabled = false;
-            Conductor conductorScript = conductor.GetComponent<Conductor>() as Conductor;
-            conductorScript.musicSource.Stop();
-            gameOverPanel.SetActive(false);
-            winPanel.SetActive(true);
-            WeaponSelected.SetActive(false);
-            _liveImage.enabled = false;
-            return;
+        if (PlayerManager.Instance.level == 3){
+            if (bossObject != null) {
+                EnemyBaseClass bossScript = bossObject.GetComponent<EnemyBaseClass>();
+                        // Usa o componente do script para acessar as variáveis ​​do script
+                if (bossScript.ganhou == true) {
+                    metronome.enabled = false;
+                    Conductor conductorScript = conductor.GetComponent<Conductor>() as Conductor;
+                    conductorScript.musicSource.Stop();
+                    gameOverPanel.SetActive(false);
+                    winPanel.SetActive(true);
+                    WeaponSelected.SetActive(false);
+                    _liveImage.enabled = false;
+                    return;
+                }
+            }
         }
 
-    }
+
+        }
 
     void LateUpdate()
     {
@@ -235,7 +243,7 @@ private void Awake()
         // Verifica se há algum objeto com BoxCollider2D na próxima posição
         Collider2D hit = Physics2D.OverlapBox(newPosition, boxSize, 0f);
 
-        if (hit != null && (hit.gameObject.CompareTag("Enemy")))
+        if (hit != null && ((hit.gameObject.CompareTag("Enemy")) || (hit.gameObject.CompareTag("Boss"))))
         {
             EnemyBaseClass enemyScript = hit.gameObject.GetComponent<EnemyBaseClass>() as EnemyBaseClass;
             if (enemyScript != null)
