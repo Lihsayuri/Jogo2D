@@ -59,7 +59,17 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private GameObject WeaponSelected;
-    
+
+    // INFOS DO GAUGE DE ESPECIAL
+    public float specialAmount; // Quantidade atual de especial do personagem.
+    public float specialIncrease; // Quantidade de especial adicionada a cada batida.
+    public float maxSpecial; // Quantidade máxima de especial que o personagem pode ter.
+    public Image specialBar; // Referência à imagem da gauge de especial.
+    private int dmg_playerAttack;
+
+    private int tres_ataques_especiais;
+
+    private bool onSpecialAttack = false;
 
 private void Awake()
     {
@@ -95,6 +105,7 @@ private void Awake()
     {
         PreencheDicionario();
         conductor.enabled = true;
+        specialBar.fillAmount = 0;
 
         if (PlayerManager.Instance.trocaCena == true && PlayerManager.Instance.level == 2){
                 Vector3 spawnPosition = new Vector3(33.5f, 0.5f, 0f);
@@ -126,6 +137,8 @@ private void Awake()
     }
 
     void Update(){
+        specialBar.fillAmount = specialAmount / maxSpecial;
+
         if (PlayerManager.Instance.level == 3){
             if (bossObject != null) {
                 EnemyBaseClass bossScript = bossObject.GetComponent<EnemyBaseClass>();
@@ -143,9 +156,7 @@ private void Awake()
                 }
             }
         }
-
-
-        }
+    }
 
     void LateUpdate()
     {
@@ -174,11 +185,27 @@ private void Awake()
     private void Move(Vector2 direction)
     {
         if (conductor.seconds_off_beat() < beat_detection_range) {
+            
+            specialAmount += specialIncrease;
+
+            // Verifica se a quantidade de especial do personagem é maior que a quantidade máxima permitida.
+            if (specialAmount == maxSpecial)
+            {
+                // Define a quantidade de especial do personagem como a quantidade máxima permitida.
+                specialAmount = maxSpecial;
+                onSpecialAttack = true;
+                tres_ataques_especiais = 3;
+            }
+            if (specialAmount > maxSpecial)
+            {
+                // Define a quantidade de especial do personagem como a quantidade máxima permitida.
+                specialAmount = maxSpecial;
+            }
 
             if (CanMove(direction))
                 transform.position += (Vector3)direction;
 
-        }
+        } 
 
     }
 
@@ -249,7 +276,22 @@ private void Awake()
             EnemyBaseClass enemyScript = hit.gameObject.GetComponent<EnemyBaseClass>() as EnemyBaseClass;
             if (enemyScript != null)
             {
-                enemyScript.TakeDamage(selecionaUltimaArma());
+                dmg_playerAttack = selecionaUltimaArma();
+                if (onSpecialAttack)
+                {
+                    if (tres_ataques_especiais > 0){
+                        dmg_playerAttack += 1;
+                        tres_ataques_especiais -= 1;
+                        Debug.Log("Ataque especial " + tres_ataques_especiais);
+                    }
+                    else {
+                        Debug.Log("Acabou os ataques especiais");
+                        onSpecialAttack = false;
+                        specialAmount = 0;
+                    }
+                } 
+                
+                enemyScript.TakeDamage(dmg_playerAttack);
                 return false;
             }
 

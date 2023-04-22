@@ -49,8 +49,6 @@ public class EnemyBaseClass : MonoBehaviour
         health -= damage;
         
         // Verifica se o dano recebido é maior que zero e se a animação não está sendo executada
-
-        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[health];
  
         if (health <= 0)
         {
@@ -62,6 +60,8 @@ public class EnemyBaseClass : MonoBehaviour
             }
             return;
         }
+
+        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[health];
         
     }
 
