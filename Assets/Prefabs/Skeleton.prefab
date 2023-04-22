@@ -270,14 +270,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 8229489827461122749}
   conductor: {fileID: 0}
-  groundTilemap: {fileID: 0}
-  wallTilemap: {fileID: 0}
   dmg: 1
-  beatsPerMove: 2
   health: 2
   _liveSprites:
   - {fileID: 21300000, guid: ef1f0d2915ea7024e998e1db9a592559, type: 3}
   - {fileID: 21300000, guid: 1c1c41925093a754ab1f7dca7576d17e, type: 3}
   - {fileID: 21300000, guid: bafb3457c6886514b9ee8f3aa124bcba, type: 3}
   _liveImage: {fileID: 1978393518367872022}
+  ganhou: 0
+  animator: {fileID: 8229489827461122727}
+  animationTimeDead: 0.4
+  groundTilemap: {fileID: 0}
+  wallTilemap: {fileID: 0}
+  beatsPerMove: 2
   player: {fileID: 0}

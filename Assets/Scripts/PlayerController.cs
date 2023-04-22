@@ -136,6 +136,7 @@ private void Awake()
                     conductorScript.musicSource.Stop();
                     gameOverPanel.SetActive(false);
                     winPanel.SetActive(true);
+                    Debug.Log("Ganhou");
                     WeaponSelected.SetActive(false);
                     _liveImage.enabled = false;
                     return;

@@ -15,6 +15,7 @@ public class EnemyMoveClass : EnemyBaseClass
     protected int beatsPerMove = 2;
 
 
+
     protected bool CanMove(Vector2 direction)
     {
         Vector3 newPosition = enemy.transform.position + (Vector3)direction;
@@ -28,15 +29,26 @@ public class EnemyMoveClass : EnemyBaseClass
             if (hit.gameObject.CompareTag("Player"))
             {
                 PlayerController playerScript = (PlayerController)hit.gameObject.GetComponent(typeof(PlayerController));
+
                 playerScript.TakeDamage(dmg);
+                animator.SetBool("isAttacking", true);
                 return false;
             }
             return false;
+        } else
+        {
+            animator.SetBool("isAttacking", false);
+            animator.SetBool("isDying", false);
+            animator.SetBool("isWalking", true);
         }
+
 
         Vector3Int gridPosition = groundTilemap.WorldToCell(newPosition);
         if (!groundTilemap.HasTile(gridPosition) || wallTilemap.HasTile(gridPosition))
             return false;
+
+
+
         return true;
     }
 

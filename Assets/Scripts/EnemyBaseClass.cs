@@ -27,20 +27,42 @@ public class EnemyBaseClass : MonoBehaviour
 
     public bool ganhou = false;
 
+    public Animator animator;
+
+    private bool isDying = false;
+
+    public float animationTimeDead;
+
+    IEnumerator WaitForAnimation()
+    {
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isAttacking", false);
+        animator.SetBool("isDying", true);
+        Debug.Log("Animation Started");
+        yield return new WaitForSeconds(animationTimeDead);
+        Debug.Log("Animation Ended");
+        Destroy(gameObject);
+        Debug.Log("Object Destroyed");
+    }
     public void TakeDamage(int damage)
     {
         health -= damage;
+        
+        // Verifica se o dano recebido é maior que zero e se a animação não está sendo executada
+
+        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[health];
+ 
         if (health <= 0)
         {
             _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[0];
-            Destroy(enemy);
-            if (gameObject.tag == "Boss"){
+            StartCoroutine(WaitForAnimation());
+            if (gameObject.tag == "Boss")
+            {
                 ganhou = true;
             }
             return;
         }
-        _liveImage.GetComponent<SpriteRenderer>().sprite = _liveSprites[health];
-
+        
     }
 
     public bool BeatChanged()
@@ -54,6 +76,7 @@ public class EnemyBaseClass : MonoBehaviour
 
     void Start()
     {
+        animator.SetBool("isWalking", true);
         lastPositionInBeats = conductor.songPositionInBeats;
     }
 

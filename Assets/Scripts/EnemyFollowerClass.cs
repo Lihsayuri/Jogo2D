@@ -36,6 +36,7 @@ public class EnemyFollowerClass : EnemyMoveClass
             closestVector = Vector3.down;
         }
 
+
         move(enemy, closestVector);
 
 
@@ -50,7 +51,7 @@ public class EnemyFollowerClass : EnemyMoveClass
         void Start()
     {
         lastPositionInBeats = conductor.songPositionInBeats;
-        InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posição do player a cada 1 segundo
+        InvokeRepeating("UpdatePlayerPosition", 0f, 1f); // atualiza a posiï¿½ï¿½o do player a cada 1 segundo
     }
 
     void Update()

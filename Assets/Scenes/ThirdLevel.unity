@@ -2224,6 +2224,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 981c94cd87aab1d4d8572f02f7280f72, type: 3}
   _liveImage: {fileID: 1819794731}
   ganhou: 0
+  animator: {fileID: 712108996}
+  animationTimeDead: 1
   groundTilemap: {fileID: 848982096}
   wallTilemap: {fileID: 1985500176}
   beatsPerMove: 2
