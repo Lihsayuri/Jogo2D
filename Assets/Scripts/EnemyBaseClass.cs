@@ -38,11 +38,8 @@ public class EnemyBaseClass : MonoBehaviour
         animator.SetBool("isWalking", false);
         animator.SetBool("isAttacking", false);
         animator.SetBool("isDying", true);
-        Debug.Log("Animation Started");
         yield return new WaitForSeconds(animationTimeDead);
-        Debug.Log("Animation Ended");
         Destroy(gameObject);
-        Debug.Log("Object Destroyed");
     }
     public void TakeDamage(int damage)
     {

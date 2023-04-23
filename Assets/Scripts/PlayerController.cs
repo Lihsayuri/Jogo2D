@@ -62,8 +62,8 @@ public class PlayerController : MonoBehaviour
 
     // INFOS DO GAUGE DE ESPECIAL
     public float specialAmount; // Quantidade atual de especial do personagem.
-    public float specialIncrease; // Quantidade de especial adicionada a cada batida.
-    public float maxSpecial; // Quantidade máxima de especial que o personagem pode ter.
+    public float specialIncrease = 0.1f; // Quantidade de especial adicionada a cada batida.
+    public float maxSpecial = 1f; // Quantidade máxima de especial que o personagem pode ter.
     public Image specialBar; // Referência à imagem da gauge de especial.
     private int dmg_playerAttack;
 
@@ -187,10 +187,12 @@ private void Awake()
         if (conductor.seconds_off_beat() < beat_detection_range) {
             
             specialAmount += specialIncrease;
+            Debug.Log("specialAmount: " + specialAmount);
 
             // Verifica se a quantidade de especial do personagem é maior que a quantidade máxima permitida.
-            if (specialAmount == maxSpecial)
+            if (specialAmount >= 0.95 && specialAmount <= 1.05f)
             {
+                Debug.Log("Ataque Especial");
                 // Define a quantidade de especial do personagem como a quantidade máxima permitida.
                 specialAmount = maxSpecial;
                 onSpecialAttack = true;
@@ -279,13 +281,20 @@ private void Awake()
                 dmg_playerAttack = selecionaUltimaArma();
                 if (onSpecialAttack)
                 {
+                    Debug.Log("ESPECIAL");
                     if (tres_ataques_especiais > 0){
                         dmg_playerAttack += 1;
                         tres_ataques_especiais -= 1;
                         Debug.Log("Ataque especial " + tres_ataques_especiais);
+                        if (tres_ataques_especiais == 0){
+                            specialBar.fillAmount = 0;
+                            onSpecialAttack = false;
+                            specialAmount = 0;
+                        }
                     }
                     else {
                         Debug.Log("Acabou os ataques especiais");
+                        specialBar.fillAmount = 0;
                         onSpecialAttack = false;
                         specialAmount = 0;
                     }
