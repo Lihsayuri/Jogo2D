@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Rendering.Universal;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
@@ -49,9 +50,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Image metronome;
 
+    
     // private List<string> weapons = new List<string> ();
     
-
     private Dictionary<string, int> weaponDamage = new Dictionary<string, int> ();
 
     [SerializeField] 
@@ -70,6 +71,9 @@ public class PlayerController : MonoBehaviour
     private int tres_ataques_especiais;
 
     private bool onSpecialAttack = false;
+
+    [SerializeField]
+    private Light2D spriteLight;
 
 private void Awake()
     {
@@ -184,8 +188,9 @@ private void Awake()
 
     private void Move(Vector2 direction)
     {
+        spriteLight.intensity = 0;
         if (conductor.seconds_off_beat() < beat_detection_range) {
-            
+            spriteLight.intensity = 1;      
             specialAmount += specialIncrease;
             Debug.Log("specialAmount: " + specialAmount);
 
@@ -206,7 +211,7 @@ private void Awake()
 
             if (CanMove(direction))
                 transform.position += (Vector3)direction;
-
+            
         } 
 
     }
