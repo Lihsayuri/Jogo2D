@@ -66,6 +66,8 @@ public class PlayerController : MonoBehaviour
     public float specialIncrease = 0.1f; // Quantidade de especial adicionada a cada batida.
     public float maxSpecial = 1f; // Quantidade máxima de especial que o personagem pode ter.
     public Image specialBar; // Referência à imagem da gauge de especial.
+
+    public Image fullSpecialBarImage;
     private int dmg_playerAttack;
 
     private int tres_ataques_especiais;
@@ -109,6 +111,7 @@ private void Awake()
     {
         PreencheDicionario();
         conductor.enabled = true;
+        fullSpecialBarImage.enabled = true;
         specialBar.fillAmount = 0;
 
         if (PlayerManager.Instance.trocaCena == true && PlayerManager.Instance.level == 2){
@@ -156,6 +159,8 @@ private void Awake()
                     Debug.Log("Ganhou");
                     WeaponSelected.SetActive(false);
                     _liveImage.enabled = false;
+                    fullSpecialBarImage.enabled = false;
+                    specialBar.enabled = false;
                     return;
                 }
             }
@@ -227,6 +232,8 @@ private void Awake()
             player.SetActive(false);
             metronome.enabled = false;
             gameOverPanel.SetActive(true);
+            specialBar.enabled = false;
+            fullSpecialBarImage.enabled = false;
             WeaponSelected.SetActive(false);
             _liveImage.enabled = false;
             Conductor conductorScript = conductor.GetComponent<Conductor>() as Conductor;
