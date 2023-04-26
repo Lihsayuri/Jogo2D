@@ -208,8 +208,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -411,8 +411,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -496,8 +496,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -5}
-  m_SizeDelta: {x: 500, y: 50}
+  m_AnchoredPosition: {x: -168, y: -102.46}
+  m_SizeDelta: {x: 1768.3771, y: 365.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &705507091
 MonoBehaviour:
@@ -546,8 +546,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 250
+  m_fontSizeBase: 250
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -71.90268}
+  m_margin: {x: 2.0543823, y: 0, z: -11.312317, w: -5.3903503}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -714,8 +714,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -259.37, y: -73}
-  m_SizeDelta: {x: 131.6321, y: 105.8252}
+  m_AnchoredPosition: {x: -641.95, y: -319.078}
+  m_SizeDelta: {x: 389.74, y: 285.0639}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1495805447
 MonoBehaviour:
@@ -792,8 +792,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 270, y: -60}
-  m_SizeDelta: {x: 120, y: 30}
+  m_AnchoredPosition: {x: 700, y: -300}
+  m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1498867934
 MonoBehaviour:
@@ -1156,8 +1156,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135.71, y: -90}
-  m_SizeDelta: {x: 57.6445, y: 54.6894}
+  m_AnchoredPosition: {x: 421, y: 362}
+  m_SizeDelta: {x: 224.7164, y: 214.371}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1617888685
 MonoBehaviour:
@@ -1234,8 +1234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 270, y: 20}
-  m_SizeDelta: {x: 120, y: 30}
+  m_AnchoredPosition: {x: 700, y: 20}
+  m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1794145651
 MonoBehaviour:
@@ -1366,8 +1366,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -259.37, y: 43}
-  m_SizeDelta: {x: 117.1036, y: 108.2466}
+  m_AnchoredPosition: {x: -638.32, y: 44.197}
+  m_SizeDelta: {x: 382.4732, y: 323.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1871857663
 MonoBehaviour:
@@ -1442,8 +1442,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076294, y: -18}
-  m_SizeDelta: {x: 329.0732, y: 167.122}
+  m_AnchoredPosition: {x: 24.45119, y: -154.5003}
+  m_SizeDelta: {x: 870.4025, y: 720.4806}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1968155233
 MonoBehaviour:
@@ -1465,13 +1465,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Violineto, a classical musician and violinist, had a close relationship
+  m_text: 'Violineto, a classical musician and violinist, had a close relationship
     with music since childhood. During his youth, he met Marcello, a cellist who
-    played with Violineto in the Concertoland orchestra.\r\n\r\nMarcello, due to
+    played with Violineto in the Concertoland orchestra.
+
+
+    Marcello, due to
     his great talent, was captured by LungLung, a violist who wanted to win the string
-    instruments competition.\r\n\r\nIn search of his best friend, Violineto will
-    have to face his \ngreatest fear: pop music, to save Marcello and allow him to
-    \nparticipate in the competition."
+    instruments competition.
+
+    
+
+    In search of his best friend, Violineto
+    will have to face his greatest fear: pop music, to save Marcello and allow him
+    to participate in the competition.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 27f66f0ea10b89147876723f71e02ab6, type: 2}
   m_sharedMaterial: {fileID: 8869771972246755430, guid: 27f66f0ea10b89147876723f71e02ab6, type: 2}
@@ -1498,8 +1505,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13
-  m_fontSizeBase: 13
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1534,7 +1541,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -0.08770752}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
