@@ -245,7 +245,9 @@ private void Awake()
             if (CanMove(direction))
                 transform.position += (Vector3)direction;
             
-        } 
+        }  else {
+            specialAmount = 0;
+        }
 
     }
 
