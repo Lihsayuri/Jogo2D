@@ -278,4 +278,4 @@ MonoBehaviour:
   _liveImage: {fileID: 358854776781740199}
   ganhou: 0
   animator: {fileID: 4149600357921418940}
-  animationTimeDead: 0.3
+  animationTimeDead: 0.4

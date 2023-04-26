@@ -279,7 +279,7 @@ MonoBehaviour:
   _liveImage: {fileID: 1978393518367872022}
   ganhou: 0
   animator: {fileID: 8229489827461122727}
-  animationTimeDead: 0.4
+  animationTimeDead: 0.6
   groundTilemap: {fileID: 0}
   wallTilemap: {fileID: 0}
   beatsPerMove: 2

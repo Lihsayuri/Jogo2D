@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject player;
 
+    public Animator animator;
+
     private PlayerMovement controls;
 
     [SerializeField]
@@ -61,6 +63,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject WeaponSelected;
 
+
+    [SerializeField]
+    private GameObject WeaponSelectedPopUp;
+
     // INFOS DO GAUGE DE ESPECIAL
     public float specialAmount; // Quantidade atual de especial do personagem.
     public float specialIncrease = 0.1f; // Quantidade de especial adicionada a cada batida.
@@ -76,6 +82,20 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Light2D spriteLight;
+
+    public Image fadeOut;
+
+    public AudioSource audioSource; // Referência ao componente AudioSource
+    public AudioClip hitSound; // Som que será tocado quando o personagem receber um hit
+
+    public AudioClip lifePotion;
+
+    public AudioClip openChest;
+
+    public AudioClip foundWeapon;
+
+    public AudioClip foundKey;
+
 
 private void Awake()
     {
@@ -112,6 +132,7 @@ private void Awake()
         PreencheDicionario();
         conductor.enabled = true;
         fullSpecialBarImage.enabled = true;
+        fadeOut.enabled = false;
         specialBar.fillAmount = 0;
 
         if (PlayerManager.Instance.trocaCena == true && PlayerManager.Instance.level == 2){
@@ -129,10 +150,13 @@ private void Awake()
         {
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
+            SetWeaponImage WeaponPopUpUI = WeaponSelectedPopUp.GetComponent<SetWeaponImage>();
+            WeaponPopUpUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
         }
         else
         {
             WeaponSelected.SetActive(false);
+            WeaponSelectedPopUp.SetActive(false);
         }
 
 
@@ -151,13 +175,15 @@ private void Awake()
                 EnemyBaseClass bossScript = bossObject.GetComponent<EnemyBaseClass>();
                         // Usa o componente do script para acessar as variáveis ​​do script
                 if (bossScript.ganhou == true) {
+                    animator.SetBool("Won", true);
+                    WaitForSeconds wait = new WaitForSeconds(1.5f);
+                    fadeOut.enabled = true;
+                    FadeOut FadeoutScript = fadeOut.GetComponent<FadeOut>() as FadeOut;
+                    FadeoutScript.StartCoroutine(FadeoutScript.FadeOutCoroutineWin());
                     metronome.enabled = false;
-                    Conductor conductorScript = conductor.GetComponent<Conductor>() as Conductor;
-                    conductorScript.musicSource.Stop();
                     gameOverPanel.SetActive(false);
-                    winPanel.SetActive(true);
-                    Debug.Log("Ganhou");
                     WeaponSelected.SetActive(false);
+                    WeaponSelectedPopUp.SetActive(false);
                     _liveImage.enabled = false;
                     fullSpecialBarImage.enabled = false;
                     specialBar.enabled = false;
@@ -173,6 +199,8 @@ private void Awake()
         {
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
+            SetWeaponImage WeaponPopUpUI = WeaponSelectedPopUp.GetComponent<SetWeaponImage>();
+            WeaponPopUpUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
         }
         if (conductor.GetComponent<Conductor>().musicSource.isPlaying == false){
             if (PlayerManager.Instance.level == 1){
@@ -224,20 +252,24 @@ private void Awake()
     public void TakeDamage(int damage)
     {
         vida -= damage;
+        audioSource.PlayOneShot(hitSound);
         if(vida > 0)
             _liveImage.sprite = _liveSprites[vida];
         else
         {
             _liveImage.sprite = _liveSprites[0];
-            player.SetActive(false);
+            animator.SetBool("isDying", true);
+            WaitForSeconds wait = new WaitForSeconds(1.5f);
+            fadeOut.enabled = true;
+            FadeOut FadeoutScript = fadeOut.GetComponent<FadeOut>() as FadeOut;
+            FadeoutScript.StartCoroutine(FadeoutScript.FadeOutCoroutine());
+
             metronome.enabled = false;
-            gameOverPanel.SetActive(true);
             specialBar.enabled = false;
             fullSpecialBarImage.enabled = false;
             WeaponSelected.SetActive(false);
+            WeaponSelectedPopUp.SetActive(false);
             _liveImage.enabled = false;
-            Conductor conductorScript = conductor.GetComponent<Conductor>() as Conductor;
-            conductorScript.musicSource.Stop();
             conductor.enabled = false;
             return; // Adicionado para interromper a execução do método
         }
@@ -246,8 +278,10 @@ private void Awake()
     public void confereWeaponSelected(){
         if (PlayerManager.Instance.weapons.Count == 0){
             WeaponSelected.SetActive(false);
+            WeaponSelectedPopUp.SetActive(false);
         } else {
             WeaponSelected.SetActive(true);
+            WeaponSelectedPopUp.SetActive(true);
         }
     }
 
@@ -259,7 +293,9 @@ private void Awake()
         string randomWeapon = weaponList[randomIndex];
         PlayerManager.Instance.weapons.Add(randomWeapon);
         SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
+        SetWeaponImage weaponUIPopUp = WeaponSelectedPopUp.GetComponent<SetWeaponImage>();
         weaponUI.SetImage(randomWeapon);
+        weaponUIPopUp.SetImage(randomWeapon);
         confereWeaponSelected();
         PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
         popUpControllerScript.ShowPopup(randomWeapon, weaponDamage);
@@ -337,6 +373,7 @@ private void Awake()
 
         if (hit != null && (hit.gameObject.CompareTag("Key")))
         {
+            audioSource.PlayOneShot(foundKey);
             hit.gameObject.SetActive(false);
             hasKey = true;
             return true;
@@ -345,11 +382,14 @@ private void Awake()
         if (hit != null && (hit.gameObject.CompareTag("SimpleSword")))
         {
             hit.gameObject.SetActive(false);
+            audioSource.PlayOneShot(foundWeapon);
             PlayerManager.Instance.weapons.Add("SimpleSword");
             PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
             popUpControllerScript.ShowPopup("SimpleSword", weaponDamage);
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("SimpleSword");
+            SetWeaponImage weaponUIPopUp = WeaponSelectedPopUp.GetComponent<SetWeaponImage>();
+            weaponUIPopUp.SetImage("SimpleSword");
             confereWeaponSelected();
             return true;
         }
@@ -357,30 +397,37 @@ private void Awake()
         if (hit != null && (hit.gameObject.CompareTag("Knife")))
         {
             hit.gameObject.SetActive(false);
+            audioSource.PlayOneShot(foundWeapon);
             PlayerManager.Instance.weapons.Add("Knife");
             PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
             popUpControllerScript.ShowPopup("Knife", weaponDamage);
             confereWeaponSelected();
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("Knife");
+            SetWeaponImage weaponUIPopUp = WeaponSelectedPopUp.GetComponent<SetWeaponImage>();
+            weaponUIPopUp.SetImage("Knife");
             return true;
         }
 
         if (hit != null && (hit.gameObject.CompareTag("SimpleAxe")))
         {
             hit.gameObject.SetActive(false);
+            audioSource.PlayOneShot(foundWeapon);
             PlayerManager.Instance.weapons.Add("SimpleAxe");
             PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
             popUpControllerScript.ShowPopup("SimpleAxe", weaponDamage);
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("SimpleAxe");
             // confere se o setactive do weaponselected é false e se for muda para true
+            SetWeaponImage weaponUIPopUp = WeaponSelectedPopUp.GetComponent<SetWeaponImage>();
+            weaponUIPopUp.SetImage("SimpleAxe");
             confereWeaponSelected();
             return true;
         }
 
         if (hit != null && (hit.gameObject.CompareTag("Chest")))
         {
+            audioSource.PlayOneShot(openChest);
             hit.gameObject.SetActive(false);
             SorteiaItem();
             return true;
@@ -388,6 +435,7 @@ private void Awake()
 
         if (hit != null && (hit.gameObject.CompareTag("Potion")))
         {
+            audioSource.PlayOneShot(lifePotion);
             hit.gameObject.SetActive(false);
             if (vida < 5)
                 vida++;

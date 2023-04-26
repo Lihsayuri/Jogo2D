@@ -7,6 +7,7 @@ public class GameOverPanel : MonoBehaviour
     // Start is called before the first frame update
 
     public static GameOverPanel instance;
+
     void Awake()
     {
         if (instance == null)
@@ -21,3 +22,5 @@ public class GameOverPanel : MonoBehaviour
     }
     
 }
+
+
