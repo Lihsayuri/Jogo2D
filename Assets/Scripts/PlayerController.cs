@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -57,15 +58,12 @@ public class PlayerController : MonoBehaviour
     
     private Dictionary<string, int> weaponDamage = new Dictionary<string, int> ();
 
-    [SerializeField] 
-    private GameObject NewWeapon;
-
     [SerializeField]
     private GameObject WeaponSelected;
 
+    [SerializeField] 
 
-    [SerializeField]
-    private GameObject WeaponSelectedPopUp;
+    private TextMeshProUGUI damageText;
 
     // INFOS DO GAUGE DE ESPECIAL
     public float specialAmount; // Quantidade atual de especial do personagem.
@@ -130,6 +128,7 @@ private void Awake()
     void Start()
     {
         PreencheDicionario();
+        damageText.enabled = false;
         conductor.enabled = true;
         fullSpecialBarImage.enabled = true;
         fadeOut.enabled = false;
@@ -150,13 +149,13 @@ private void Awake()
         {
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
-            SetWeaponImage WeaponPopUpUI = WeaponSelectedPopUp.GetComponent<SetWeaponImage>();
-            WeaponPopUpUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
+            ShowText(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1], weaponDamage);
+            
         }
         else
         {
             WeaponSelected.SetActive(false);
-            WeaponSelectedPopUp.SetActive(false);
+            damageText.enabled = false;
         }
 
 
@@ -183,7 +182,7 @@ private void Awake()
                     metronome.enabled = false;
                     gameOverPanel.SetActive(false);
                     WeaponSelected.SetActive(false);
-                    WeaponSelectedPopUp.SetActive(false);
+                    damageText.enabled = false;
                     _liveImage.enabled = false;
                     fullSpecialBarImage.enabled = false;
                     specialBar.enabled = false;
@@ -199,8 +198,7 @@ private void Awake()
         {
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
-            SetWeaponImage WeaponPopUpUI = WeaponSelectedPopUp.GetComponent<SetWeaponImage>();
-            WeaponPopUpUI.SetImage(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1]);
+            ShowText(PlayerManager.Instance.weapons[PlayerManager.Instance.weapons.Count-1], weaponDamage);
         }
         if (conductor.GetComponent<Conductor>().musicSource.isPlaying == false){
             if (PlayerManager.Instance.level == 1){
@@ -228,6 +226,9 @@ private void Awake()
             Debug.Log("specialAmount: " + specialAmount);
 
             // Verifica se a quantidade de especial do personagem é maior que a quantidade máxima permitida.
+            if (onSpecialAttack){
+                specialAmount = maxSpecial;
+            }
             if (specialAmount >= 0.95 && specialAmount <= 1.05f)
             {
                 Debug.Log("Ataque Especial");
@@ -251,6 +252,12 @@ private void Awake()
 
     }
 
+    
+    public void ShowText(string weaponName, Dictionary<string, int> weaponDamage) {
+        damageText.text = weaponDamage[weaponName] + "x damage" ;
+        damageText.enabled = true;
+    }
+
     public void TakeDamage(int damage)
     {
         vida -= damage;
@@ -270,7 +277,7 @@ private void Awake()
             specialBar.enabled = false;
             fullSpecialBarImage.enabled = false;
             WeaponSelected.SetActive(false);
-            WeaponSelectedPopUp.SetActive(false);
+            damageText.enabled = false;
             _liveImage.enabled = false;
             conductor.enabled = false;
             return; // Adicionado para interromper a execução do método
@@ -280,10 +287,10 @@ private void Awake()
     public void confereWeaponSelected(){
         if (PlayerManager.Instance.weapons.Count == 0){
             WeaponSelected.SetActive(false);
-            WeaponSelectedPopUp.SetActive(false);
+            damageText.enabled = false;
         } else {
             WeaponSelected.SetActive(true);
-            WeaponSelectedPopUp.SetActive(true);
+            damageText.enabled = true;
         }
     }
 
@@ -295,12 +302,9 @@ private void Awake()
         string randomWeapon = weaponList[randomIndex];
         PlayerManager.Instance.weapons.Add(randomWeapon);
         SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
-        SetWeaponImage weaponUIPopUp = WeaponSelectedPopUp.GetComponent<SetWeaponImage>();
         weaponUI.SetImage(randomWeapon);
-        weaponUIPopUp.SetImage(randomWeapon);
+        ShowText(randomWeapon, weaponDamage);
         confereWeaponSelected();
-        PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
-        popUpControllerScript.ShowPopup(randomWeapon, weaponDamage);
     }
 
 
@@ -386,12 +390,10 @@ private void Awake()
             hit.gameObject.SetActive(false);
             audioSource.PlayOneShot(foundWeapon);
             PlayerManager.Instance.weapons.Add("SimpleSword");
-            PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
-            popUpControllerScript.ShowPopup("SimpleSword", weaponDamage);
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("SimpleSword");
-            SetWeaponImage weaponUIPopUp = WeaponSelectedPopUp.GetComponent<SetWeaponImage>();
-            weaponUIPopUp.SetImage("SimpleSword");
+            damageText.enabled = true;
+            ShowText("SimpleSword", weaponDamage);
             confereWeaponSelected();
             return true;
         }
@@ -401,13 +403,11 @@ private void Awake()
             hit.gameObject.SetActive(false);
             audioSource.PlayOneShot(foundWeapon);
             PlayerManager.Instance.weapons.Add("Knife");
-            PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
-            popUpControllerScript.ShowPopup("Knife", weaponDamage);
             confereWeaponSelected();
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("Knife");
-            SetWeaponImage weaponUIPopUp = WeaponSelectedPopUp.GetComponent<SetWeaponImage>();
-            weaponUIPopUp.SetImage("Knife");
+            damageText.enabled = true;
+            ShowText("Knife", weaponDamage);
             return true;
         }
 
@@ -416,13 +416,10 @@ private void Awake()
             hit.gameObject.SetActive(false);
             audioSource.PlayOneShot(foundWeapon);
             PlayerManager.Instance.weapons.Add("SimpleAxe");
-            PopUpController popUpControllerScript = NewWeapon.GetComponent<PopUpController>() as PopUpController;
-            popUpControllerScript.ShowPopup("SimpleAxe", weaponDamage);
             SetWeaponImage weaponUI = WeaponSelected.GetComponent<SetWeaponImage>();
             weaponUI.SetImage("SimpleAxe");
-            // confere se o setactive do weaponselected é false e se for muda para true
-            SetWeaponImage weaponUIPopUp = WeaponSelectedPopUp.GetComponent<SetWeaponImage>();
-            weaponUIPopUp.SetImage("SimpleAxe");
+            damageText.enabled = true;
+            ShowText("SimpleAxe", weaponDamage);
             confereWeaponSelected();
             return true;
         }

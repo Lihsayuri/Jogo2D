@@ -16,7 +16,7 @@ public class PopUpController : MonoBehaviour
     }
 
     public void ShowPopup(string weaponName, Dictionary<string, int> weaponDamage) {
-        popupText.text = weaponName +"\n" +  weaponDamage[weaponName] + "x damage to your enemies " ;
+        popupText.text = weaponDamage[weaponName] + "x damage" ;
         popupContainer.SetActive(true);
         StartCoroutine(HidePopup());
     }
