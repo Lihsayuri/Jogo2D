@@ -17,10 +17,11 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null || !(SceneManager.GetActiveScene().name == "Tutorial"))
+        if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            if ((SceneManager.GetActiveScene().name == "FirstLevel"))
+                DontDestroyOnLoad(gameObject);
         }
         else
         {
