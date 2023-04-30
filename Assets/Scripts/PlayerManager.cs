@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance == null || !(SceneManager.GetActiveScene().name == "Tutorial"))
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
