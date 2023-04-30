@@ -53,6 +53,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Image metronome;
 
+    [SerializeField]
+
+    private Image Chave;
+
     
     // private List<string> weapons = new List<string> ();
     
@@ -94,6 +98,14 @@ public class PlayerController : MonoBehaviour
 
     public AudioClip foundKey;
 
+    [SerializeField]
+
+    private TextMeshProUGUI OnSpecial;
+
+    [SerializeField]
+
+    private TextMeshProUGUI Tries;
+
 
 private void Awake()
     {
@@ -128,6 +140,9 @@ private void Awake()
     void Start()
     {
         PreencheDicionario();
+        Chave.enabled = false;
+        OnSpecial.enabled = false;
+        Tries.enabled = false;
         damageText.enabled = false;
         conductor.enabled = true;
         fullSpecialBarImage.enabled = true;
@@ -183,6 +198,8 @@ private void Awake()
                     gameOverPanel.SetActive(false);
                     WeaponSelected.SetActive(false);
                     damageText.enabled = false;
+                    Tries.enabled = false;
+                    OnSpecial.enabled = false;
                     _liveImage.enabled = false;
                     fullSpecialBarImage.enabled = false;
                     specialBar.enabled = false;
@@ -220,21 +237,23 @@ private void Awake()
     private void Move(Vector2 direction)
     {
         spriteLight.intensity = 0;
+
         if (conductor.seconds_off_beat() < beat_detection_range) {
             spriteLight.intensity = 1;      
             specialAmount += specialIncrease;
             Debug.Log("specialAmount: " + specialAmount);
 
             // Verifica se a quantidade de especial do personagem é maior que a quantidade máxima permitida.
-            if (onSpecialAttack){
-                specialAmount = maxSpecial;
-            }
+
             if (specialAmount >= 0.95 && specialAmount <= 1.05f)
             {
                 Debug.Log("Ataque Especial");
                 // Define a quantidade de especial do personagem como a quantidade máxima permitida.
                 specialAmount = maxSpecial;
                 onSpecialAttack = true;
+                OnSpecial.enabled = true;
+                Tries.text = "0/3";
+                Tries.enabled = true;
                 tres_ataques_especiais = 3;
             }
             if (specialAmount > maxSpecial)
@@ -246,15 +265,27 @@ private void Awake()
             if (CanMove(direction))
                 transform.position += (Vector3)direction;
             
-        }  else {
-            specialAmount = 0;
+        }  
+        else {
+            if (onSpecialAttack){
+                specialAmount = maxSpecial;
+            } else{
+                specialAmount = 0;
+                Tries.enabled = false;
+                OnSpecial.enabled = false;
+            }
         }
 
     }
 
     
     public void ShowText(string weaponName, Dictionary<string, int> weaponDamage) {
-        damageText.text = weaponDamage[weaponName] + "x damage" ;
+        if (onSpecialAttack){
+            damageText.text = (weaponDamage[weaponName]+1) + "x damage" ;
+        } else {
+            damageText.text = weaponDamage[weaponName] + "x damage" ;
+        }
+
         damageText.enabled = true;
     }
 
@@ -277,6 +308,8 @@ private void Awake()
             specialBar.enabled = false;
             fullSpecialBarImage.enabled = false;
             WeaponSelected.SetActive(false);
+            OnSpecial.enabled = false;
+            Tries.enabled = false;
             damageText.enabled = false;
             _liveImage.enabled = false;
             conductor.enabled = false;
@@ -339,9 +372,20 @@ private void Awake()
                     if (tres_ataques_especiais > 0){
                         dmg_playerAttack += 1;
                         tres_ataques_especiais -= 1;
+                        if (tres_ataques_especiais == 2){
+                            Tries.text = "1/3";
+                        }
+                        else if (tres_ataques_especiais == 1){
+                            Tries.text = "2/3";
+                        }
+                        else{
+                            Tries.text = "0/3";
+                        }
                         Debug.Log("Ataque especial " + tres_ataques_especiais);
                         if (tres_ataques_especiais == 0){
                             specialBar.fillAmount = 0;
+                            Tries.enabled = false;
+                            OnSpecial.enabled = false;
                             onSpecialAttack = false;
                             specialAmount = 0;
                         }
@@ -351,8 +395,10 @@ private void Awake()
                         specialBar.fillAmount = 0;
                         onSpecialAttack = false;
                         specialAmount = 0;
+                        Tries.enabled = false;
+                        OnSpecial.enabled = false;
                     }
-                } 
+                }
                 
                 enemyScript.TakeDamage(dmg_playerAttack);
                 return false;
@@ -366,6 +412,7 @@ private void Awake()
             DoorScript doorScript = hit.gameObject.GetComponent<DoorScript>() as DoorScript;
             if (doorScript.locked && hasKey)
             {
+                Chave.enabled = false;
                 hasKey = false;
                 doorScript.locked = false;
                 doorScript.OpenDoor();
@@ -382,6 +429,7 @@ private void Awake()
             audioSource.PlayOneShot(foundKey);
             hit.gameObject.SetActive(false);
             hasKey = true;
+            Chave.enabled = true;
             return true;
         }
 

@@ -34,6 +34,7 @@ public class EnemyMoveClass : EnemyBaseClass
                 animator.SetBool("isAttacking", true);
                 return false;
             }
+
             return false;
         } else
         {
