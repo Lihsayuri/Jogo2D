@@ -128,3 +128,11 @@ Caso a música acabe antes dele mudar de nível, ele será lançado para o próx
 
 - **Chopin Script** [[https://www.dafont.com/chopin-script.font](https://www.dafont.com/chopin-script.font)]
 - **Diane de France** [[https://www.dafont.com/diane-de-france.font](https://www.dafont.com/diane-de-france.font)]
+
+### Códigos:
+
+- Trechos de exemplo do ChatGPT.
+- Brackeys : "How to make AWESOME Scene Transitions in Unity!"[https://www.youtube.com/watch?v=CE9VOZivb3I]
+- LegionGames : "Making Crypt of the Necrodancer in a Week"[https://www.youtube.com/watch?v=4blfYQz3Ckg]
+- Coding in Flow: "Animation & Animator | Build a 2D Platformer Game in Unity #4"[https://www.youtube.com/watch?v=GChUpPnOSkg]
+- Alexander Zotov: "Unity 2D Animation Tutorial - Idle Run Jump Animations And Transitions Between Them Using C# Script"[https://www.youtube.com/watch?v=BlalhxSTUWo&t=428s]
