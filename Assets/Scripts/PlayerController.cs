@@ -196,6 +196,7 @@ private void Awake()
                     FadeoutScript.StartCoroutine(FadeoutScript.FadeOutCoroutineWin());
                     metronome.enabled = false;
                     gameOverPanel.SetActive(false);
+                    Chave.enabled = false;
                     WeaponSelected.SetActive(false);
                     damageText.enabled = false;
                     Tries.enabled = false;
@@ -308,6 +309,7 @@ private void Awake()
             specialBar.enabled = false;
             fullSpecialBarImage.enabled = false;
             WeaponSelected.SetActive(false);
+            Chave.enabled = false;
             OnSpecial.enabled = false;
             Tries.enabled = false;
             damageText.enabled = false;

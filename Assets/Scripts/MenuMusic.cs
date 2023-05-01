@@ -11,7 +11,7 @@ public class MenuMusic : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = this;
+            instance = this;            
             DontDestroyOnLoad(gameObject);
         }
         else
