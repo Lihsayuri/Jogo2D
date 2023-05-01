@@ -58,20 +58,21 @@ Mas para chegar ao nível três ele precisa seguir as dinâmicas do jogo, que in
 
 ## Link no itch.io
 
-- Link da JAM: https://itch.io/jam/20231roll-a-ball/rate/1960313 .
-- Link para jogar na web: https://lihsayuri.itch.io/ballmaze  .
+- Link da JAM: https://itch.io/jam/2023-1-projeto-2d/rate/2045443   .
+- Link para jogar na web: https://lihsayuri.itch.io/dance-god   .
 
 
 ## Alguns screeshots do jogo
 
-![image](https://user-images.githubusercontent.com/62647438/224311179-a8092edf-a86d-4638-b50f-ebaadade23e4.png)
+![img1](https://user-images.githubusercontent.com/62647438/235471453-7eb6f63c-ba69-4bde-96b0-f2aee188adb7.png)
 
-![image](https://user-images.githubusercontent.com/62647438/224311194-16be0ebb-dcdf-49dd-a3f9-ace085bcf824.png)
+![img2](https://user-images.githubusercontent.com/62647438/235471461-52d5fc08-9d75-4cd0-8329-74fa52d436e1.png)
 
-![image](https://user-images.githubusercontent.com/62647438/224311214-76128fcf-c798-4486-80d5-7177ab9f47da.png)
+![img3](https://user-images.githubusercontent.com/62647438/235471471-658fdf59-a6cc-47a7-9c33-c5a8d3f07951.png)
 
-![image](https://user-images.githubusercontent.com/62647438/224311265-fe0f617b-1031-4052-b3f3-7da4eac690c2.png)
+![img4](https://user-images.githubusercontent.com/62647438/235471488-f1886bb8-783f-499b-af89-dd554f6af61f.png)
 
+![img5](https://user-images.githubusercontent.com/62647438/235471505-236df0f2-26b2-4b4b-8186-ee2ecb55cd93.png)
 
 ## Referências:
 
