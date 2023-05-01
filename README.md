@@ -41,12 +41,14 @@ O jogo possui um tutorial e três níveis.
 
 O objetivo é matar LungLung no nível 3. Feito isso, o jogador venceu o jogo.
 
-Mas para chegar ao nível três ele precisa seguir as dinâmicas do jogo, que incluem:
+Mas para chegar ao nível três ele precisa seguir as mecânicas do jogo, que incluem:
 
 - Andar (para cima, para baixo, lado direito e esquerdo) no beat da música pop que está sendo tocada. Para isso ele precisará prestar atenção na música e pode ser ajudado pelo metrônomo no canto inferior da tela, bem como a luz verde no personagem que indica que ele está no ritmo.
 - Fugir ou matar os inimigos que possuem padrões de ataques diferentes.
 - Encontrar a chave que libera o acesso a escada.
 - Abrir a porta para descer a escada e chegar ao próximo nível.
+
+Caso a música acabe antes dele mudar de nível, ele será lançado para o próximo nível em uma sala bem mais difícil de se passar.
 
 ## Alguma dinâmicas esperadas :triangular_ruler: :
 
@@ -56,8 +58,9 @@ Mas para chegar ao nível três ele precisa seguir as dinâmicas do jogo, que in
 - Ou, caso já esteja com uma arma que considere boa, não buscar baús, mas simplesmente mantê-la. 
 
 
-## Link no itch.io
+## Link no itch.io e GDD
 
+- Link do GDD: https://app.milanote.com/1PF1fQ1wO2YB2B/game-design-document?p=wmhl8tbv0Co .
 - Link da JAM: https://itch.io/jam/2023-1-projeto-2d/rate/2045443   .
 - Link para jogar na web: https://lihsayuri.itch.io/dance-god   .
 
